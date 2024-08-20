@@ -26,7 +26,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class FileIOTest {
 
     FileIO fileIO = new FileIOFormulaUno("racetrack.txt");
-    char[][] track = (char[][]) fileIO.getRacetrack();
+    char[][] track = fileIO.getRacetrack();
     List<Player> players = fileIO.getListPlayer();
     List<Integer> finishLine = fileIO.getFinishLine();
 

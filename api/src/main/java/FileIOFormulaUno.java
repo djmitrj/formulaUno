@@ -33,16 +33,15 @@ import java.util.List;
 public class FileIOFormulaUno implements FileIO {
 
     private final String file;
-    private final Object racetrack;
+    private final char[][] racetrack;
     private final List<Player> playerList;
     private final List<Integer> finishLine;
 
     public FileIOFormulaUno(String file) throws FileReaderError {
         this.file = file;
-        this.racetrack = parseTrack(readFile());
+        this.racetrack = parseRacetrack(readFile());
         this.playerList = parsePlayers(racetrack);
         this.finishLine = parseFinishLine(playerList);
-
     }
 
     /**
@@ -70,7 +69,7 @@ public class FileIOFormulaUno implements FileIO {
      * @param file file read as input
      * @return racetrack
      */
-    private char[][] parseTrack(List<String> file) {
+    private char[][] parseRacetrack(List<String> file) {
         char[][] racetrack = new char[file.size()][file.getFirst().length()];
         for(int j = 0; j < file.size(); j++) {
             for(int i = 0; i < file.getFirst().length(); i++) {
@@ -112,7 +111,7 @@ public class FileIOFormulaUno implements FileIO {
     }
 
     @Override
-    public Object getRacetrack() {
+    public char[][] getRacetrack() {
         return this.racetrack;
     }
 

@@ -30,7 +30,7 @@ public interface FileIO {
      * Get the parsed racetrack of the game
      * @return the parsed racetrack
      */
-    Object getRacetrack();
+    <T> T getRacetrack();
 
     /**
      * Get the list of competing players in the game

@@ -36,7 +36,7 @@ public class raceHandlerFormulaUno implements raceHandler {
      * @param fileIO file of the racetrack
      */
     public raceHandlerFormulaUno(FileIO fileIO) {
-        this.racetrack = (char[][]) fileIO.getRacetrack();
+        this.racetrack = fileIO.getRacetrack();
         this.players = fileIO.getListPlayer();
         this.finishLine = fileIO.getFinishLine();
     }
