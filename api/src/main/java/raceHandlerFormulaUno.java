@@ -34,12 +34,11 @@ public class raceHandlerFormulaUno implements raceHandler {
     /**
      * Constructor of the setup of the racetrack and the players competing in the Formula Uno game
      * @param fileIO file of the racetrack
-     * @throws FileReaderError Exception in case of incorrect reading of the file
      */
-    public raceHandlerFormulaUno(FileIO fileIO) throws FileReaderError {
-        this.racetrack = fileIO.parseTrack(fileIO.readFile());
-        this.players = fileIO.parsePlayers(this.racetrack);
-        this.finishLine = fileIO.parseFinishLine(this.players);
+    public raceHandlerFormulaUno(FileIO fileIO) {
+        this.racetrack = (char[][]) fileIO.getRacetrack();
+        this.players = fileIO.getListPlayer();
+        this.finishLine = fileIO.getFinishLine();
     }
 
     @Override

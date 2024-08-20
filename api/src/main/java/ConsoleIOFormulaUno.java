@@ -25,7 +25,7 @@
 
 import java.util.List;
 
-public class ConsoleIOFormulaUno implements ConsoleIO{
+public class ConsoleIOFormulaUno implements ConsoleIO {
 
     @Override
     public <T> void printTrack(T racetrack) {

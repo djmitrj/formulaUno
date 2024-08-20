@@ -27,34 +27,22 @@ import java.util.List;
 
 public interface FileIO {
     /**
-     * Reads the game path file as input
-     * @param <T> type of the read file
-     * @return file read as input
-     * @throws FileReaderError Exception in case of incorrect reading of the file
+     * Get the parsed racetrack of the game
+     * @return the parsed racetrack
      */
-    <T> T readFile() throws FileReaderError;
+    Object getRacetrack();
 
     /**
-     * Interprets the input file and generates the racetrack
-     * @param file file read as input
-     * @return racetrack
-     * @param <T> type of the racetrack
-     * @param <K> type of the read file
-     */
-    <T,K> T parseTrack(K file);
-
-    /**
-     * Interprets the track and generates the list of competing players
-     * @param racetrack racetrack
+     * Get the list of competing players in the game
      * @return the list of competing players
-     * @param <T> type of the racetrack
      */
-    <T> List<Player> parsePlayers(T racetrack);
+    List<Player> getListPlayer();
 
     /**
-     * Returns the coordinates of the race finish line
-     * @param players list of competing players
-     * @return Coordinates of the finish line
+     * Get the coordinates of the finish line of the game
+     * @return the coordinates of the finish line
      */
-    List<Integer> parseFinishLine(List<Player> players);
+    List<Integer> getFinishLine();
+
+
 }

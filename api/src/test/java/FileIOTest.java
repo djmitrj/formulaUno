@@ -26,22 +26,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class FileIOTest {
 
     FileIO fileIO = new FileIOFormulaUno("racetrack.txt");
-    List<String> file = fileIO.readFile();
-    char[][] track = fileIO.parseTrack(file);
-    List<Player> players = fileIO.parsePlayers(track);
-    List<Integer> finishLine = fileIO.parseFinishLine(players);
+    char[][] track = (char[][]) fileIO.getRacetrack();
+    List<Player> players = fileIO.getListPlayer();
+    List<Integer> finishLine = fileIO.getFinishLine();
 
     public FileIOTest() throws FileReaderError {
     }
 
-    @Test
-    public void readFileTest() {
-        assertEquals(17,file.size());
-        assertEquals(16,file.get(0).length());
-        assertEquals('B',file.get(8).charAt(2));
-        assertEquals('0',file.get(9).charAt(2));
-        assertEquals('1',file.get(8).charAt(1));
-    }
 
     @Test
     public void parseTrackTest() {

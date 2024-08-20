@@ -30,16 +30,27 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileIOFormulaUno implements FileIO{
+public class FileIOFormulaUno implements FileIO {
 
     private final String file;
+    private final Object racetrack;
+    private final List<Player> playerList;
+    private final List<Integer> finishLine;
 
-    public FileIOFormulaUno(String file) {
+    public FileIOFormulaUno(String file) throws FileReaderError {
         this.file = file;
+        this.racetrack = parseTrack(readFile());
+        this.playerList = parsePlayers(racetrack);
+        this.finishLine = parseFinishLine(playerList);
+
     }
 
-    @Override
-    public List<String> readFile() throws FileReaderError {
+    /**
+     * Reads the game path file as input
+     * @return file read as input
+     * @throws FileReaderError Exception in case of incorrect reading of the file
+     */
+    private List<String> readFile() throws FileReaderError {
         ClassLoader classLoader = FileIOFormulaUno.class.getClassLoader();
         List<String> track = new ArrayList<>();
         try (InputStream inputStream = classLoader.getResourceAsStream(this.file)) {
@@ -54,21 +65,28 @@ public class FileIOFormulaUno implements FileIO{
         }
     }
 
-    @Override
-    public <T,K> T parseTrack(K file) {
-        List<String> parseFile = (List<String>) file;
-        char[][] track = new char[parseFile.size()][parseFile.getFirst().length()];
-        for(int j = 0; j < parseFile.size(); j++) {
-            for(int i = 0; i < parseFile.getFirst().length(); i++) {
-                track[j][i] = parseFile.get(j).charAt(i);
+    /**
+     * Interprets the input file and generates the racetrack
+     * @param file file read as input
+     * @return racetrack
+     */
+    private char[][] parseTrack(List<String> file) {
+        char[][] racetrack = new char[file.size()][file.getFirst().length()];
+        for(int j = 0; j < file.size(); j++) {
+            for(int i = 0; i < file.getFirst().length(); i++) {
+                racetrack[j][i] = file.get(j).charAt(i);
             }
         }
-        return (T) track;
+        return racetrack;
     }
 
-    @Override
-    public <T> List<Player> parsePlayers(T track) {
-        char[][] racetrack = (char[][]) track;
+    /**
+     * Interprets the track and generates the list of competing players
+     * @param racetrack1 racetrack
+     * @return the list of competing players
+     */
+    private List<Player> parsePlayers(Object racetrack1) {
+        char[][] racetrack = (char[][]) racetrack1;
         int c = 0;
         List<Player> players = new ArrayList<>();
         for(int i = 0; i < racetrack.length; i++) {
@@ -81,11 +99,30 @@ public class FileIOFormulaUno implements FileIO{
         return players;
     }
 
-    @Override
-    public List<Integer> parseFinishLine(List<Player> players) {
+    /**
+     * Returns the coordinates of the race finish line
+     * @param players list of competing players
+     * @return Coordinates of the finish line
+     */
+    private List<Integer> parseFinishLine(List<Player> players) {
         List<Integer> finishLine = new ArrayList<>();
         finishLine.add(players.getLast().getGameMachine().getPosition().x());
         finishLine.add(players.getLast().getGameMachine().getPosition().y() + 1);
         return finishLine;
+    }
+
+    @Override
+    public Object getRacetrack() {
+        return this.racetrack;
+    }
+
+    @Override
+    public List<Player> getListPlayer() {
+        return this.playerList;
+    }
+
+    @Override
+    public List<Integer> getFinishLine() {
+        return this.finishLine;
     }
 }
