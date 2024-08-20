@@ -27,7 +27,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class FileIOFormulaUno implements FileIO {
@@ -45,18 +45,18 @@ public class FileIOFormulaUno implements FileIO {
     }
 
     /**
-     * Reads the game path file as input
+     * Read the input file
      * @return file read as input
      * @throws FileReaderError Exception in case of incorrect reading of the file
      */
     private List<String> readFile() throws FileReaderError {
         ClassLoader classLoader = FileIOFormulaUno.class.getClassLoader();
-        List<String> track = new ArrayList<>();
+        List<String> track = new LinkedList<>();
         try (InputStream inputStream = classLoader.getResourceAsStream(this.file)) {
             assert inputStream != null;
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
                 String line;
-                while ((line = reader.readLine()) != null) { track.add(line);}
+                while ((line = reader.readLine()) != null) { track.addLast(line);}
                 return track;
             }
         } catch (IOException e) {
@@ -65,7 +65,7 @@ public class FileIOFormulaUno implements FileIO {
     }
 
     /**
-     * Interprets the input file and generates the racetrack
+     * Parse the input file and generates the racetrack
      * @param file file read as input
      * @return racetrack
      */
@@ -80,18 +80,17 @@ public class FileIOFormulaUno implements FileIO {
     }
 
     /**
-     * Interprets the track and generates the list of competing players
-     * @param racetrack1 racetrack
+     * Parse the track and generates the list of competing players
+     * @param racetrack racetrack
      * @return the list of competing players
      */
-    private List<Player> parsePlayers(Object racetrack1) {
-        char[][] racetrack = (char[][]) racetrack1;
+    private List<Player> parsePlayers(char[][] racetrack) {
+        List<Player> players = new LinkedList<>();
         int c = 0;
-        List<Player> players = new ArrayList<>();
         for(int i = 0; i < racetrack.length; i++) {
             for(int j = 0; j < racetrack[0].length; j++) {
                 if(racetrack[i][j] == 'B') {
-                    players.add(new botPlayer((++c) + "B",'B', new gameMachineFormulaUno(new positionFormulaUno(j, i))));
+                    players.addLast(new botPlayer((++c) + "B",'B', new gameMachineFormulaUno(new positionFormulaUno(j, i))));
                 }
             }
         }
@@ -99,14 +98,14 @@ public class FileIOFormulaUno implements FileIO {
     }
 
     /**
-     * Returns the coordinates of the race finish line
+     * Generate the coordinates of the race finish line
      * @param players list of competing players
      * @return Coordinates of the finish line
      */
     private List<Integer> parseFinishLine(List<Player> players) {
-        List<Integer> finishLine = new ArrayList<>();
-        finishLine.add(players.getLast().getGameMachine().getPosition().x());
-        finishLine.add(players.getLast().getGameMachine().getPosition().y() + 1);
+        List<Integer> finishLine = new LinkedList<>();
+        finishLine.addLast(players.getLast().getGameMachine().getPosition().x());
+        finishLine.addLast(players.getLast().getGameMachine().getPosition().y() + 1);
         return finishLine;
     }
 
@@ -116,7 +115,7 @@ public class FileIOFormulaUno implements FileIO {
     }
 
     @Override
-    public List<Player> getListPlayer() {
+    public List<Player> getPlayers() {
         return this.playerList;
     }
 

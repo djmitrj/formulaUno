@@ -27,7 +27,7 @@ public class FileIOTest {
 
     FileIO fileIO = new FileIOFormulaUno("racetrack.txt");
     char[][] track = fileIO.getRacetrack();
-    List<Player> players = fileIO.getListPlayer();
+    List<Player> players = fileIO.getPlayers();
     List<Integer> finishLine = fileIO.getFinishLine();
 
     public FileIOTest() throws FileReaderError {

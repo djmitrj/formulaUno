@@ -33,10 +33,10 @@ public interface FileIO {
     <T> T getRacetrack();
 
     /**
-     * Get the list of competing players in the game
+     * Get the parsed list of competing players in the game
      * @return the list of competing players
      */
-    List<Player> getListPlayer();
+    List<Player> getPlayers();
 
     /**
      * Get the coordinates of the finish line of the game

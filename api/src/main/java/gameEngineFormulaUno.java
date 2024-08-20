@@ -75,7 +75,7 @@ public class gameEngineFormulaUno implements gameEngine {
     }
 
     /**
-     * I check if there are still players in the race
+     * Check if there are still players in the race
      * True if at least one player is competing, False otherwise
      */
     private boolean checkListPlayers() {
