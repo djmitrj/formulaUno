@@ -41,6 +41,9 @@ public class FileIOFormulaUno implements FileIO {
     private final String file;
 
     public FileIOFormulaUno(String file) {
+        if(file == null) {
+            throw new NullPointerException("The string passed is null");
+        }
         this.file = file;
     }
 
@@ -62,13 +65,13 @@ public class FileIOFormulaUno implements FileIO {
 
     @Override
     public <T> T parseTrack(List<String> file) {
-            char[][] track = new char[file.size()][file.getFirst().length()];
-            for (int j = 0; j < file.size(); j++) {
-                for (int i = 0; i < file.getFirst().length(); i++) {
-                    track[j][i] = file.get(j).charAt(i);
-                }
+        char[][] track = new char[file.size()][file.getFirst().length()];
+        for (int j = 0; j < file.size(); j++) {
+            for (int i = 0; i < file.getFirst().length(); i++) {
+                track[j][i] = file.get(j).charAt(i);
             }
-            return (T) track;
+        }
+        return (T) track;
     }
 
     @Override
