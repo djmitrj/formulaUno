@@ -23,7 +23,7 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import it.unicam.cs.formulaUno.api.Console.*;
+package it.unicam.cs.formulaUno.app;import it.unicam.cs.formulaUno.api.Console.*;
 import it.unicam.cs.formulaUno.api.File.*;
 import it.unicam.cs.formulaUno.api.gameEngine.*;
 import it.unicam.cs.formulaUno.api.raceHandler.*;

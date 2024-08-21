@@ -40,5 +40,5 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass = "Main"
+    mainClass = "it.unicam.cs.formulaUno.app.Main"
 }
