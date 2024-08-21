@@ -23,6 +23,11 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
+package it.unicam.cs.formulaUno.api.Player;
+
+import it.unicam.cs.formulaUno.api.Position.*;
+import it.unicam.cs.formulaUno.api.gameMachine.*;
+
 public abstract class genericPlayer implements Player {
 
     private final String id;
@@ -33,7 +38,7 @@ public abstract class genericPlayer implements Player {
      * Constructor of a generic player of Formula Uno
      * @param id identifier
      * @param category category
-     * @param machine Player's machine
+     * @param machine player's machine
      * @throws IllegalArgumentException if the parameters are invalid
      */
     public genericPlayer(String id, char category, gameMachine machine) {

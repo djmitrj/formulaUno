@@ -23,6 +23,11 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
+package it.unicam.cs.formulaUno.api.raceHandler;
+
+import it.unicam.cs.formulaUno.api.Player.*;
+import it.unicam.cs.formulaUno.api.Position.*;
+
 import java.util.List;
 
 public interface raceHandler {
@@ -62,9 +67,9 @@ public interface raceHandler {
     void removePlayer(Player player);
 
     /**
-     * Check if the Player goes off racetrack
+     * Check if Player goes off racetrack
      * @param position position to check
-     * @return True if the Player goes off racetrack, False otherwise
+     * @return True if Player goes off racetrack, False otherwise
      */
     boolean checkPosition(Position position);
 

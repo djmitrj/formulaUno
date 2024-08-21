@@ -23,26 +23,51 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import java.util.Random;
+package it.unicam.cs.formulaUno.api.Console;
 
-public class botPlayer extends genericPlayer {
+import it.unicam.cs.formulaUno.api.Player.*;
+
+import java.util.List;
+
+public interface ConsoleIO {
     /**
-     * Bot player constructor
-     * @param id identifier
-     * @param category category
-     * @param machine player's machine
+     * Print the racetrack on the console
+     * @param racetrack racetrack
+     * @param <T> type of the racetrack
      */
-    public botPlayer(String id, char category, gameMachine machine) {
-        super(id, category, machine);
-    }
+    <T> void printTrack(T racetrack);
 
-    @Override
-    public Position move() {
-        Random rand = new Random();
-        if(getGameMachine().getLastPosition() == null) {
-            return new positionFormulaUno(getGameMachine().getPosition().x(),
-                    getGameMachine().getPosition().y() - 1);
-        }
-        return getGameMachine().possibleMoves().get(rand.nextInt(getGameMachine().possibleMoves().size()));
-    }
+    /**
+     * Print the list of players competing with their positions
+     * @param players list of players competing
+     */
+    void printPlayers(List<Player> players);
+
+    /**
+     * Print the race start message
+     */
+    void messageStart();
+
+    /**
+     * All Players have been eliminated, the competition is over
+     */
+    void messageFinish();
+
+    /**
+     * Victory message
+     * @param player Winning player
+     */
+    void messageVictory(Player player);
+
+    /**
+     * Player on duty
+     * @param player Player on duty
+     */
+    void playerTurn(Player player);
+
+    /**
+     * Wrong move
+     */
+    void errorMove(Player player);
+
 }

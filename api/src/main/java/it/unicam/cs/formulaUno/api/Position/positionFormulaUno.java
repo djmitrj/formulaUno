@@ -23,14 +23,10 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import java.io.IOException;
-
+package it.unicam.cs.formulaUno.api.Position;
 /**
- * Exception in case of incorrect reading of the file
+ * Constructor of a position in the Formula Uno game
+ * @param x X coordinate
+ * @param y Y coordinate
  */
-public class FileReaderError extends IOException {
-
-    FileReaderError(String message) {
-        System.out.println(message);
-    }
-}
+public record positionFormulaUno(int x, int y) implements Position {}

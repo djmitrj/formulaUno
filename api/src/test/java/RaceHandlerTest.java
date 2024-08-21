@@ -23,6 +23,11 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
+import it.unicam.cs.formulaUno.api.File.*;
+import it.unicam.cs.formulaUno.api.Player.*;
+import it.unicam.cs.formulaUno.api.Position.*;
+import it.unicam.cs.formulaUno.api.gameMachine.*;
+import it.unicam.cs.formulaUno.api.raceHandler.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

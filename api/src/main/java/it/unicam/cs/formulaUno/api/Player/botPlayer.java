@@ -23,44 +23,31 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import java.util.List;
+package it.unicam.cs.formulaUno.api.Player;
 
-public interface gameMachine {
-    /**
-     * Get the player's position on the racetrack
-     * @return position of the player
-     */
-    Position getPosition();
+import it.unicam.cs.formulaUno.api.Position.*;
+import it.unicam.cs.formulaUno.api.gameMachine.*;
 
-    /**
-     * Set the new player position
-     * @param position new position of the player
-     * @throws NullPointerException if the passed position is null
-     */
-    void setPosition(Position position);
+import java.util.Random;
 
+public class botPlayer extends genericPlayer {
     /**
-     * Get the player's previous position
-     * @return player's previous position
+     * Bot player constructor
+     * @param id identifier
+     * @param category category
+     * @param machine player's machine
      */
-    Position getLastPosition();
+    public botPlayer(String id, char category, gameMachine machine) {
+        super(id, category, machine);
+    }
 
-    /**
-     * Set the player's previous position
-     * @param position player's previous position
-     * @throws NullPointerException if the passed position is null
-     */
-    void setLastPosition(Position position);
-
-    /**
-     * Get the player's next "normal" move
-     * @return player's next "normal" move
-     */
-    Position getNextPosition();
-
-    /**
-     * Check a player's possible next moves
-     * @return player's possible next moves
-     */
-    List<Position> possibleMoves();
+    @Override
+    public Position move() {
+        Random rand = new Random();
+        if(getGameMachine().getLastPosition() == null) {
+            return new positionFormulaUno(getGameMachine().getPosition().x(),
+                    getGameMachine().getPosition().y() - 1);
+        }
+        return getGameMachine().possibleMoves().get(rand.nextInt(getGameMachine().possibleMoves().size()));
+    }
 }

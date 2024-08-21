@@ -23,6 +23,11 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
+import it.unicam.cs.formulaUno.api.Console.*;
+import it.unicam.cs.formulaUno.api.File.*;
+import it.unicam.cs.formulaUno.api.gameEngine.*;
+import it.unicam.cs.formulaUno.api.raceHandler.*;
+
 public class Main {
     public static void main(String[] args) throws FileReaderError {
         FileIO fileIO = new FileIOFormulaUno("racetrack.txt");

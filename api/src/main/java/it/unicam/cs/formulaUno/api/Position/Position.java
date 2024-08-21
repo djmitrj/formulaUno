@@ -23,27 +23,18 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-public interface Player {
+package it.unicam.cs.formulaUno.api.Position;
+
+public interface Position {
     /**
-     * Returns the player identifier
-     * @return player identifier
+     * X coordinate of the player's position on the racetrack
+     * @return X coordinate
      */
-    String getId();
-    /**
-     * Returns the player category (B or I)
-     * @return player category
-     */
-    char getCategory();
+    int x();
 
     /**
-     * Returns the player's machine
-     * @return player's machine
+     * Y coordinate of the player's position on the racetrack
+     * @return Y coordinate
      */
-    gameMachine getGameMachine();
-
-    /**
-     * Move made by the player
-     * @return possible future position of the player
-     */
-    Position move();
+    int y();
 }

@@ -23,38 +23,11 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import java.util.List;
+package it.unicam.cs.formulaUno.api.gameEngine;
 
-public interface FileIO {
+public interface gameEngine {
     /**
-     * Reads the game path file as input
-     * //@param <K> type of the read file
-     * @return file read as input
-     * @throws FileReaderError Exception in case of incorrect reading of the file
+     * Start the game
      */
-    List<String> readFile() throws FileReaderError;
-
-    /**
-     * Interprets the input file and generates the racetrack
-     * @param file file read as input
-     * @return racetrack
-     * @param <T> type of the racetrack
-     * //@param <K> type of the read file
-     */
-    <T> T parseTrack(List<String> file);
-
-    /**
-     * Interprets the track and generates the list of competing players
-     * @param racetrack racetrack
-     * @return the list of competing players
-     * @param <T> type of the racetrack
-     */
-    <T> List<Player> parsePlayers(T racetrack);
-
-    /**
-     * Returns the coordinates of the race finish line
-     * @param players list of competing players
-     * @return Coordinates of the finish line
-     */
-    List<Integer> parseFinishLine(List<Player> players);
+    void start();
 }

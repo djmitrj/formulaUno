@@ -23,16 +23,48 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-public interface Position {
+package it.unicam.cs.formulaUno.api.gameMachine;
+
+import it.unicam.cs.formulaUno.api.Position.*;
+
+import java.util.List;
+
+public interface gameMachine {
     /**
-     * X coordinate of the player's position on the racetrack
-     * @return X coordinate
+     * Get the player's position on the racetrack
+     * @return position of the player
      */
-    int x();
+    Position getPosition();
 
     /**
-     * Y coordinate of the player's position on the racetrack
-     * @return Y coordinate
+     * Set the new player position
+     * @param position new position of the player
+     * @throws NullPointerException if the passed position is null
      */
-    int y();
+    void setPosition(Position position);
+
+    /**
+     * Get the player's previous position
+     * @return player's previous position
+     */
+    Position getLastPosition();
+
+    /**
+     * Set the player's previous position
+     * @param position player's previous position
+     * @throws NullPointerException if the passed position is null
+     */
+    void setLastPosition(Position position);
+
+    /**
+     * Get the player's next "normal" move
+     * @return player's next "normal" move
+     */
+    Position getNextPosition();
+
+    /**
+     * Check a player's possible next moves
+     * @return player's possible next moves
+     */
+    List<Position> possibleMoves();
 }

@@ -23,6 +23,8 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
+import it.unicam.cs.formulaUno.api.File.*;
+import it.unicam.cs.formulaUno.api.Player.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

@@ -23,6 +23,10 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
+package it.unicam.cs.formulaUno.api.Console;
+
+import it.unicam.cs.formulaUno.api.Player.*;
+
 import java.util.List;
 
 public class ConsoleIOFormulaUno implements ConsoleIO {

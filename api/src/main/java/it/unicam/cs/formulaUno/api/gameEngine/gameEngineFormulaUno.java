@@ -23,6 +23,13 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
+package it.unicam.cs.formulaUno.api.gameEngine;
+
+import it.unicam.cs.formulaUno.api.Console.*;
+import it.unicam.cs.formulaUno.api.Player.*;
+import it.unicam.cs.formulaUno.api.Position.*;
+import it.unicam.cs.formulaUno.api.raceHandler.*;
+
 public class gameEngineFormulaUno implements gameEngine {
 
     private boolean gameRunning;
@@ -60,7 +67,7 @@ public class gameEngineFormulaUno implements gameEngine {
     /**
      * Check if a player has won
      * @param player player whose victory is to be verified
-     * @return True if the Player won, False otherwise
+     * @return True if Player won, False otherwise
      */
     private boolean checkVictory(Player player) {
         if(player.getGameMachine().getLastPosition() == null) return false;

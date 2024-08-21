@@ -23,6 +23,10 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
+package it.unicam.cs.formulaUno.api.gameMachine;
+
+import it.unicam.cs.formulaUno.api.Position.*;
+
 import java.util.ArrayList;
 import java.util.List;
 

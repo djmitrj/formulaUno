@@ -23,14 +23,15 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
+import it.unicam.cs.formulaUno.api.gameMachine.*;
+import it.unicam.cs.formulaUno.api.Position.*;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class GameMachineTest {
 
-    gameMachine gameMachine = new gameMachineFormulaUno(new positionFormulaUno(1,2));
+    it.unicam.cs.formulaUno.api.gameMachine.gameMachine gameMachine = new gameMachineFormulaUno(new positionFormulaUno(1,2));
 
     @Test
     public void testGameMachineGetPosition() {
