@@ -13,30 +13,48 @@
  * The above copyright notice and this permission notice shall be
  * included in all copies or substantial portions of the Software.
  *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
  */
 
 import java.util.List;
 
 public interface FileIO {
     /**
-     * Get the parsed racetrack of the game
-     * @return the parsed racetrack
+     * Reads the game path file as input
+     * //@param <K> type of the read file
+     * @return file read as input
+     * @throws FileReaderError Exception in case of incorrect reading of the file
      */
-    <T> T getRacetrack();
+    List<String> readFile() throws FileReaderError;
 
     /**
-     * Get the parsed list of competing players in the game
+     * Interprets the input file and generates the racetrack
+     * @param file file read as input
+     * @return racetrack
+     * @param <T> type of the racetrack
+     * //@param <K> type of the read file
+     */
+    <T> T parseTrack(List<String> file);
+
+    /**
+     * Interprets the track and generates the list of competing players
+     * @param racetrack racetrack
      * @return the list of competing players
+     * @param <T> type of the racetrack
      */
-    List<Player> getPlayers();
+    <T> List<Player> parsePlayers(T racetrack);
 
     /**
-     * Get the coordinates of the finish line of the game
-     * @return the coordinates of the finish line
+     * Returns the coordinates of the race finish line
+     * @param players list of competing players
+     * @return Coordinates of the finish line
      */
-    List<Integer> getFinishLine();
-
-
+    List<Integer> parseFinishLine(List<Player> players);
 }

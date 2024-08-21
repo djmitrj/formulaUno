@@ -13,8 +13,14 @@
  * The above copyright notice and this permission notice shall be
  * included in all copies or substantial portions of the Software.
  *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
  */
 
 import java.util.List;
@@ -28,11 +34,12 @@ public class raceHandlerFormulaUno implements raceHandler {
     /**
      * Constructor of the setup of the racetrack and the players competing in the Formula Uno game
      * @param fileIO file of the racetrack
+     * @throws FileReaderError Exception in case of incorrect reading of the file
      */
-    public raceHandlerFormulaUno(FileIO fileIO) {
-        this.racetrack = fileIO.getRacetrack();
-        this.players = fileIO.getPlayers();
-        this.finishLine = fileIO.getFinishLine();
+    public raceHandlerFormulaUno(FileIO fileIO) throws FileReaderError {
+        this.racetrack = fileIO.parseTrack(fileIO.readFile());
+        this.players = fileIO.parsePlayers(this.racetrack);
+        this.finishLine = fileIO.parseFinishLine(this.players);
     }
 
     @Override
