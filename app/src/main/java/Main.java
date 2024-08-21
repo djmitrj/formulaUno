@@ -23,6 +23,8 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) throws FileReaderError {
         FileIO fileIO = new FileIOFormulaUno("racetrack.txt");

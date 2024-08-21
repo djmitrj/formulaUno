@@ -47,7 +47,7 @@ public class RaceHandlerTest {
 
     @Test
     public void removePlayerTest() {
-        raceHandlerFormulaUno.removePlayer(raceHandlerFormulaUno.getPlayers().get(0));
+        raceHandlerFormulaUno.removePlayer(raceHandlerFormulaUno.getPlayers().getFirst());
         assertEquals(3, raceHandlerFormulaUno.getPlayers().size());
     }
 
