@@ -29,10 +29,7 @@ import it.unicam.cs.formulaUno.api.Player.*;
 
 import java.util.List;
 
-/**
- * @param <T> type of the racetrack
- */
-public interface FileIO<T> {
+public interface FileIO {
     /**
      * Reads the game path file as input
      * @return file read as input
@@ -44,15 +41,17 @@ public interface FileIO<T> {
      * Parse the input file and generates the racetrack
      * @param file file read as input
      * @return racetrack
+     * @param <T> type of the racetrack
      */
-    T parseTrack(List<String> file);
+    <T> T parseTrack(List<String> file);
 
     /**
      * Parse the racetrack and generates the list of competing players
      * @param racetrack racetrack
      * @return the list of competing players
+     * @param <T> type of the racetrack
      */
-    List<Player> parsePlayers(T racetrack);
+    <T> List<Player> parsePlayers(T racetrack);
 
     /**
      * Generate the coordinates of the race finish line
