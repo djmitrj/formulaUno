@@ -87,7 +87,6 @@ public class gameEngineFormulaUno implements gameEngine {
      */
     private boolean checkListPlayers() {
         if(this.raceHandlerFormulaUno.getPlayers().isEmpty()) {
-            this.consoleIO.printTrack(this.raceHandlerFormulaUno.getRacetrack());
             this.consoleIO.messageFinish();
             return true;
         }

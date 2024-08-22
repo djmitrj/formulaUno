@@ -42,7 +42,7 @@ public class raceHandlerFormulaUno implements raceHandler {
      * @param fileIO file of the racetrack
      * @throws FileReaderError Exception in case of incorrect reading of the file
      */
-    public raceHandlerFormulaUno(FileIO fileIO) throws FileReaderError {
+    public raceHandlerFormulaUno(FileIO<char[][]> fileIO) throws FileReaderError {
         this.racetrack = fileIO.parseTrack(fileIO.readFile());
         this.players = fileIO.parsePlayers(this.racetrack);
         this.finishLine = fileIO.parseFinishLine(this.players);
