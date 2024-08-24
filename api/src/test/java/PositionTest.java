@@ -30,7 +30,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PositionTest {
 
-    Position position = new positionFormulaUno(1,2);
+    private final Position position = new positionFormulaUno(1,2);
 
     @Test
     public void testX() {

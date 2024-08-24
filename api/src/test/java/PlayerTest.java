@@ -33,7 +33,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class PlayerTest {
 
-    Player playerB = new botPlayer("1B",'B',new gameMachineFormulaUno(new positionFormulaUno(1,2)));
+    private final Player playerB = new botPlayer("1B",'B',new gameMachineFormulaUno(new positionFormulaUno(1,2)));
 
     @Test
     public void botPlayerTest() {

@@ -33,11 +33,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FileIOTest {
 
-    FileIO<char[][]> fileIO = new FileIOFormulaUno("racetrack.txt");
-    List<String> file = fileIO.readFile();
-    char[][] track = fileIO.parseTrack(file);
-    List<Player> players = fileIO.parsePlayers(track);
-    List<Integer> finishLine = fileIO.parseFinishLine(players);
+    private final FileIO<char[][]> fileIO = new FileIOFormulaUno("racetrack.txt");
+    private final List<String> file = fileIO.readFile();
+    private final char[][] track = fileIO.parseTrack(file);
+    private final  List<Player> players = fileIO.parsePlayers(track);
+    private final  List<Integer> finishLine = fileIO.parseFinishLine(players);
 
     public FileIOTest() throws FileReaderError {
     }
@@ -61,7 +61,7 @@ public class FileIOTest {
     }
 
     @Test
-    public void parsePlayerTest() {
+    public void parsePlayersTest() {
         assertEquals(4,players.size());
         assertEquals('B',players.get(0).getCategory());
         assertEquals("4B",players.get(3).getId());

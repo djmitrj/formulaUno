@@ -31,7 +31,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class GameMachineTest {
 
-    it.unicam.cs.formulaUno.api.gameMachine.gameMachine gameMachine = new gameMachineFormulaUno(new positionFormulaUno(1,2));
+   private final gameMachine gameMachine = new gameMachineFormulaUno(new positionFormulaUno(1,2));
 
     @Test
     public void testGameMachineGetPosition() {

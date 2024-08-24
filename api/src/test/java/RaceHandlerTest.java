@@ -34,8 +34,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class RaceHandlerTest {
 
-    FileIO<char[][]> fileIO = new FileIOFormulaUno("racetrack.txt");
-    raceHandler raceHandlerFormulaUno = new raceHandlerFormulaUno(fileIO);
+    private final FileIO<char[][]> fileIO = new FileIOFormulaUno("racetrack.txt");
+    private final raceHandler raceHandlerFormulaUno = new raceHandlerFormulaUno(fileIO);
 
     public RaceHandlerTest() throws FileReaderError {
     }

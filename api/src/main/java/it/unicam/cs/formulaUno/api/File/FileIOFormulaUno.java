@@ -69,6 +69,8 @@ public class FileIOFormulaUno implements FileIO<char[][]> {
 
     @Override
     public char[][] parseTrack(List<String> file) {
+        if(file == null) throw new NullPointerException
+                ("The list passed is null");
         char[][] track = new char[file.size()][file.getFirst().length()];
         for (int j = 0; j < file.size(); j++) {
             for (int i = 0; i < file.getFirst().length(); i++) {
@@ -80,6 +82,8 @@ public class FileIOFormulaUno implements FileIO<char[][]> {
 
     @Override
     public List<Player> parsePlayers(char[][] racetrack) {
+        if(racetrack == null) throw new NullPointerException
+                ("The racetrack passed is null");
         int c = 0;
         List<Player> players = new ArrayList<>();
         for(int i = 0; i < racetrack.length; i++) {
@@ -94,6 +98,8 @@ public class FileIOFormulaUno implements FileIO<char[][]> {
 
     @Override
     public List<Integer> parseFinishLine(List<Player> players) {
+        if(players == null) throw new NullPointerException
+                ("The list passed is null");
         List<Integer> finishLine = new ArrayList<>();
         finishLine.add(players.getLast().getGameMachine().getPosition().x());
         finishLine.add(players.getLast().getGameMachine().getPosition().y() + 1);

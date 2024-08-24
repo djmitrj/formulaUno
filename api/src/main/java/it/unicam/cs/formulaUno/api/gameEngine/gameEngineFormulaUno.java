@@ -51,7 +51,6 @@ public class gameEngineFormulaUno implements gameEngine {
     public void start() {
         this.consoleIO.messageStart();
         while(this.gameRunning) {
-           if(checkListPlayers()) this.gameRunning = false;
            this.consoleIO.printPlayers(this.raceHandlerFormulaUno.getPlayers());
            for(int i = 0; i < this.raceHandlerFormulaUno.getPlayers().size(); i++) {
                Player player = this.raceHandlerFormulaUno.getPlayers().get(i);
@@ -61,6 +60,7 @@ public class gameEngineFormulaUno implements gameEngine {
                    break;
                }
            }
+           if(checkListPlayers()) this.gameRunning = false;
         }
     }
 
