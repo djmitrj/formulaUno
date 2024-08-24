@@ -40,6 +40,10 @@ public class FileIOFormulaUno implements FileIO<char[][]> {
 
     private final String file;
 
+    /**
+     * Constructor of the Class to generate the racetrack
+     * @param file name of the file to read as input
+     */
     public FileIOFormulaUno(String file) {
         if(file == null) {
             throw new NullPointerException("The string passed is null");
