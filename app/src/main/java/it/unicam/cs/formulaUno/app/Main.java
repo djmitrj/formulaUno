@@ -32,7 +32,7 @@ import it.unicam.cs.formulaUno.api.raceHandler.*;
 
 public class Main {
     public static void main(String[] args) throws FileReaderError {
-        FileIO<char[][]> fileIO = new FileIOFormulaUno<>("racetrack.txt");
+        FileIO<char[][]> fileIO = new FileIOFormulaUno("racetrack.txt");
         ConsoleIO consoleIO = new ConsoleIOFormulaUno();
         raceHandler rhFormulaUno = new raceHandlerFormulaUno(fileIO);
         gameEngine geFormulaUno = new gameEngineFormulaUno(rhFormulaUno, consoleIO);

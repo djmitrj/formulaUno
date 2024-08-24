@@ -36,7 +36,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileIOFormulaUno<T> implements FileIO<T> {
+public class FileIOFormulaUno implements FileIO<char[][]> {
 
     private final String file;
 
@@ -64,19 +64,18 @@ public class FileIOFormulaUno<T> implements FileIO<T> {
     }
 
     @Override
-    public T parseTrack(List<String> file) {
+    public char[][] parseTrack(List<String> file) {
         char[][] track = new char[file.size()][file.getFirst().length()];
         for (int j = 0; j < file.size(); j++) {
             for (int i = 0; i < file.getFirst().length(); i++) {
                 track[j][i] = file.get(j).charAt(i);
             }
         }
-        return (T) track;
+        return track;
     }
 
     @Override
-    public List<Player> parsePlayers(T track) {
-        char[][] racetrack = (char[][]) track;
+    public List<Player> parsePlayers(char[][] racetrack) {
         int c = 0;
         List<Player> players = new ArrayList<>();
         for(int i = 0; i < racetrack.length; i++) {

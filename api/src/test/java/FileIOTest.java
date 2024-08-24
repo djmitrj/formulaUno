@@ -33,7 +33,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FileIOTest {
 
-    FileIO<char[][]> fileIO = new FileIOFormulaUno<>("racetrack.txt");
+    FileIO<char[][]> fileIO = new FileIOFormulaUno("racetrack.txt");
     List<String> file = fileIO.readFile();
     char[][] track = fileIO.parseTrack(file);
     List<Player> players = fileIO.parsePlayers(track);
