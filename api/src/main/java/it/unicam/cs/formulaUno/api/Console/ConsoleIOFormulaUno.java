@@ -44,6 +44,7 @@ public class ConsoleIOFormulaUno implements ConsoleIO {
 
     @Override
     public void printPlayers(List<Player> players) {
+        System.out.println("Players in race:");
         for(Player p : players) {
             System.out.println("Id: "+p.getId()
                     +", Category: "+p.getCategory()
