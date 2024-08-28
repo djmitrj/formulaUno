@@ -37,9 +37,10 @@ public class Main {
         FileIO<char[][]> fileIO = new FileIOFormulaUno("racetrack.txt");
         Console consoleIO = new ConsoleFormulaUno();
         raceTrack<char[][]> raceTrack = new raceTrackFormulaUno(fileIO);
-        raceHandler<char[][]> rhFormulaUno = new raceHandlerFormulaUno(raceTrack);
+        raceHandler<char[][]> rhFormulaUno = new raceHandlerFormulaUno();
         playerMove pmFormulaUno = new playerMoveFormulaUno();
-        gameEngine geFormulaUno = new gameEngineFormulaUno(rhFormulaUno, consoleIO, pmFormulaUno);
+        gameEngine geFormulaUno = new gameEngineFormulaUno(rhFormulaUno, raceTrack,
+                consoleIO, pmFormulaUno);
         geFormulaUno.start();
     }
 }

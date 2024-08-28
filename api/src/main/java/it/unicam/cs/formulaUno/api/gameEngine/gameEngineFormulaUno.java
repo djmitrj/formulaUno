@@ -30,36 +30,40 @@ import it.unicam.cs.formulaUno.api.Player.*;
 import it.unicam.cs.formulaUno.api.Position.*;
 import it.unicam.cs.formulaUno.api.playerMove.*;
 import it.unicam.cs.formulaUno.api.raceHandler.*;
+import it.unicam.cs.formulaUno.api.raceTrack.*;
 
 public class gameEngineFormulaUno implements gameEngine {
 
     private boolean gameRunning;
-    private final Console consoleIO;
+    private final Console console;
     private final raceHandler<char[][]> raceHandlerFormulaUno;
+    private final raceTrack<char[][]> raceTrackFormulaUno;
     private final playerMove playerMoveFormulaUno;
 
     /**
      * Constructor of the Formula Uno game engine
-     * @param consoleIO console's operations
+     * @param console console's operations
      * @param raceHandlerFormulaUno handler of racetrack and competing players
      */
-    public gameEngineFormulaUno(raceHandler<char[][]> raceHandlerFormulaUno, Console consoleIO,
-                                playerMove playerMoveFormulaUno) {
-        if(raceHandlerFormulaUno == null || consoleIO == null || playerMoveFormulaUno == null)
+    public gameEngineFormulaUno(raceHandler<char[][]> raceHandlerFormulaUno,raceTrack<char[][]> raceTrackFormulaUno,
+                                Console console, playerMove playerMoveFormulaUno) {
+        if(raceHandlerFormulaUno == null || raceTrackFormulaUno == null
+                || console == null || playerMoveFormulaUno == null)
             throw new NullPointerException("At least one of the parameters is null");
         this.gameRunning = true;
-        this.consoleIO = consoleIO;
+        this.console = console;
+        this.raceTrackFormulaUno = raceTrackFormulaUno;
         this.raceHandlerFormulaUno = raceHandlerFormulaUno;
         this.playerMoveFormulaUno = playerMoveFormulaUno;
     }
 
     @Override
     public void start() {
-        this.consoleIO.messageStart();
+        this.console.messageStart();
         while(this.gameRunning) {
-           this.consoleIO.printPlayers(this.raceHandlerFormulaUno.getRaceTrack().getPlayers());
-           for(int i = 0; i < this.raceHandlerFormulaUno.getRaceTrack().getPlayers().size(); i++) {
-               Player player = this.raceHandlerFormulaUno.getRaceTrack().getPlayers().get(i);
+           this.console.printPlayers(this.raceTrackFormulaUno.getPlayers());
+           for(int i = 0; i < this.raceTrackFormulaUno.getPlayers().size(); i++) {
+               Player player = this.raceTrackFormulaUno.getPlayers().get(i);
                this.playerTurn(player);
                if(this.checkVictory(player)) {
                    this.gameRunning = false;
@@ -78,11 +82,11 @@ public class gameEngineFormulaUno implements gameEngine {
     private boolean checkVictory(Player player) {
         if(player == null) throw new NullPointerException("The passed player is null");
         if(player.getGameMachine().getLastPosition() == null) return false;
-        if(this.raceHandlerFormulaUno.getRaceTrack().getFinishLine().get(1) >= player.getGameMachine().getPosition().y()
-                && player.getGameMachine().getLastPosition().y() > this.raceHandlerFormulaUno.getRaceTrack().getFinishLine().get(1)
-                && player.getGameMachine().getPosition().x() <= this.raceHandlerFormulaUno.getRaceTrack().getFinishLine().get(0)) {
-            this.consoleIO.printTrack(this.raceHandlerFormulaUno.getRaceTrack());
-            this.consoleIO.messageVictory(player);
+        if(this.raceTrackFormulaUno.getFinishLine().get(1) >= player.getGameMachine().getPosition().y()
+                && player.getGameMachine().getLastPosition().y() > this.raceTrackFormulaUno.getFinishLine().get(1)
+                && player.getGameMachine().getPosition().x() <= this.raceTrackFormulaUno.getFinishLine().get(0)) {
+            this.console.printTrack(this.raceTrackFormulaUno.getTrack());
+            this.console.messageVictory(player);
             return true;
         }
         return false;
@@ -93,8 +97,8 @@ public class gameEngineFormulaUno implements gameEngine {
      * True if at least one player is competing, False otherwise
      */
     private boolean checkListPlayers() {
-        if(this.raceHandlerFormulaUno.getRaceTrack().getPlayers().isEmpty()) {
-            this.consoleIO.messageFinish();
+        if(this.raceTrackFormulaUno.getPlayers().isEmpty()) {
+            this.console.messageFinish();
             return true;
         }
         return false;
@@ -112,9 +116,9 @@ public class gameEngineFormulaUno implements gameEngine {
     private boolean checkMove(Player player, Position newPosition) {
         if(player == null || newPosition == null)
             throw new NullPointerException("At least one of the parameters is null");
-        if(this.raceHandlerFormulaUno.checkPosition(newPosition) ||
-           (this.raceHandlerFormulaUno.checkFalseMove(player.getGameMachine().getPosition(),newPosition))) {
-                this.raceHandlerFormulaUno.removePlayer(player);
+        if(this.raceHandlerFormulaUno.checkPosition(this.raceTrackFormulaUno,newPosition) ||
+           (this.raceHandlerFormulaUno.checkFalseMove(this.raceTrackFormulaUno,player.getGameMachine().getPosition(),newPosition))) {
+                this.raceHandlerFormulaUno.removePlayer(this.raceTrackFormulaUno, player);
                 return false;
         }
         return true;
@@ -126,15 +130,15 @@ public class gameEngineFormulaUno implements gameEngine {
      */
     private void playerTurn(Player player)  {
         if(player == null) throw new NullPointerException("The passed player is null");
-        this.consoleIO.playerTurn(player);
+        this.console.playerTurn(player);
         Position newPosition = playerMoveFormulaUno.move(player);
         if(this.checkMove(player, newPosition)) {
-            this.raceHandlerFormulaUno.updatePlayerPosition(player,newPosition);
+            this.raceHandlerFormulaUno.updatePlayerPosition(this.raceTrackFormulaUno,player,newPosition);
             player.getGameMachine().setLastPosition(player.getGameMachine().getPosition());
             player.getGameMachine().setPosition(newPosition);
         } else {
-            this.consoleIO.errorMove(player);
+            this.console.errorMove(player);
         }
-        this.consoleIO.printTrack(this.raceHandlerFormulaUno.getRaceTrack().getTrack());
+        this.console.printTrack(this.raceTrackFormulaUno.getTrack());
     }
 }

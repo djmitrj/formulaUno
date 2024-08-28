@@ -26,12 +26,10 @@
 import it.unicam.cs.formulaUno.api.File.FileIO;
 import it.unicam.cs.formulaUno.api.File.FileIOFormulaUno;
 import it.unicam.cs.formulaUno.api.File.FileReaderError;
-import it.unicam.cs.formulaUno.api.Player.*;
-import it.unicam.cs.formulaUno.api.Position.*;
-import it.unicam.cs.formulaUno.api.gameMachine.*;
 import it.unicam.cs.formulaUno.api.raceTrack.raceTrack;
 import it.unicam.cs.formulaUno.api.raceTrack.raceTrackFormulaUno;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class RaceTrackTest {
 
@@ -43,6 +41,23 @@ public class RaceTrackTest {
 
     @Test
     public void getTrackTest() {
+        assertEquals(17,raceTrack.getTrack().length);
+        assertEquals(16,raceTrack.getTrack()[0].length);
+        assertEquals('B',raceTrack.getTrack()[8][2]);
+        assertEquals('0',raceTrack.getTrack()[9][2]);
+        assertEquals('1',raceTrack.getTrack()[8][1]);
+    }
 
+    @Test
+    public void getPlayersTest() {
+        assertEquals(4,raceTrack.getPlayers().size());
+        assertEquals('B',raceTrack.getPlayers().get(0).getCategory());
+        assertEquals("4B",raceTrack.getPlayers().get(3).getId());
+    }
+
+    @Test
+    public void getFinishLineTest() {
+        assertEquals(5,raceTrack.getFinishLine().getFirst());
+        assertEquals(9,raceTrack.getFinishLine().get(1));
     }
 }

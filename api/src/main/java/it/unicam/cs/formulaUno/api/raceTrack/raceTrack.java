@@ -29,6 +29,9 @@ import it.unicam.cs.formulaUno.api.Player.Player;
 
 import java.util.List;
 
+/**
+ * @param <T> type of the racetrack
+ */
 public interface raceTrack<T> {
 
     /**

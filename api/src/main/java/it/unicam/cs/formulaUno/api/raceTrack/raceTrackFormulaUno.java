@@ -39,8 +39,8 @@ public class raceTrackFormulaUno implements raceTrack<char[][]> {
 
     public raceTrackFormulaUno(FileIO<char[][]> fileIO) throws FileReaderError {
         this.racetrack = fileIO.parseTrack(fileIO.readFile());
-        this.players = fileIO.parsePlayers(getTrack());
-        this.finishLine = fileIO.parseFinishLine(getPlayers());
+        this.players = fileIO.parsePlayers(this.getTrack());
+        this.finishLine = fileIO.parseFinishLine(this.getPlayers());
     }
     @Override
     public char[][] getTrack() {

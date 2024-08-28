@@ -32,66 +32,57 @@ import it.unicam.cs.formulaUno.api.raceTrack.*;
 
 public class raceHandlerFormulaUno implements raceHandler<char[][]> {
 
-    private final raceTrack<char[][]> racetrack;
-
     /**
      * Constructor of the setup of the racetrack and the players competing in the Formula Uno game
-     * @param raceTrack file of the racetrack
      */
-    public raceHandlerFormulaUno(raceTrack<char[][]> raceTrack) {
-        if(raceTrack == null) throw new NullPointerException("The passed parameter is null");
-        this.racetrack = raceTrack;
+    public raceHandlerFormulaUno() {
+
     }
 
     @Override
-    public void updatePlayerPosition(Player player, Position position) {
+    public void updatePlayerPosition(raceTrack<char[][]> racetrack, Player player, Position position) {
         if(player == null || position == null) {
             throw new NullPointerException("At least one of the passed arguments is null");
         }
-        if(!this.racetrack.getPlayers().contains(player)) {
+        if(!racetrack.getPlayers().contains(player)) {
             throw new IllegalArgumentException("The passed player is not in the race");
         }
-        this.racetrack.getTrack()[player.getGameMachine().getPosition().y()][player.getGameMachine().getPosition().x()] = '0';
-        this.racetrack.getTrack()[position.y()][position.x()] = player.getCategory();
+        racetrack.getTrack()[player.getGameMachine().getPosition().y()][player.getGameMachine().getPosition().x()] = '0';
+        racetrack.getTrack()[position.y()][position.x()] = player.getCategory();
     }
 
     @Override
-    public void removePlayer(Player player) {
+    public void removePlayer(raceTrack<char[][]> racetrack, Player player) {
         if(player == null ) {
             throw new NullPointerException("The passed player is null");
         }
-        if(!this.racetrack.getPlayers().contains(player)) {
+        if(!racetrack.getPlayers().contains(player)) {
             throw new IllegalArgumentException("The passed player is not in the race");
         }
-        this.racetrack.getTrack()[player.getGameMachine().getPosition().y()][player.getGameMachine().getPosition().x()] = '0';
-        this.racetrack.getPlayers().remove(player);
+        racetrack.getTrack()[player.getGameMachine().getPosition().y()][player.getGameMachine().getPosition().x()] = '0';
+        racetrack.getPlayers().remove(player);
     }
 
     @Override
-    public boolean checkPosition(Position position) {
+    public boolean checkPosition(raceTrack<char[][]> racetrack, Position position) {
         if(position == null) {
             throw new NullPointerException("The passed position is null");
         }
-        return (position.y() >= this.racetrack.getTrack().length -1 ||
+        return (position.y() >= racetrack.getTrack().length -1 ||
                 position.y() < 1 ||
-                position.x() >= this.racetrack.getTrack()[0].length - 1 ||
+                position.x() >= racetrack.getTrack()[0].length - 1 ||
                 position.x() < 1 ||
-                this.racetrack.getTrack()[position.y()][position.x()] != '0');
+                racetrack.getTrack()[position.y()][position.x()] != '0');
     }
 
     @Override
-    public boolean checkFalseMove(Position currentPosition, Position newPosition) {
+    public boolean checkFalseMove(raceTrack<char[][]> racetrack, Position currentPosition, Position newPosition) {
         if(currentPosition == null || newPosition == null) {
             throw new NullPointerException("At least one of the passed arguments is null");
         }
-        return newPosition.y() >= this.racetrack.getFinishLine().get(1)
-                && currentPosition.y() < this.racetrack.getFinishLine().get(1)
-                && currentPosition.x() < this.racetrack.getFinishLine().get(0);
-    }
-
-    @Override
-    public raceTrack<char[][]> getRaceTrack() {
-        return this.racetrack;
+        return newPosition.y() >= racetrack.getFinishLine().get(1)
+                && currentPosition.y() < racetrack.getFinishLine().get(1)
+                && currentPosition.x() < racetrack.getFinishLine().get(0);
     }
 
 }

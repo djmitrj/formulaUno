@@ -34,41 +34,40 @@ import it.unicam.cs.formulaUno.api.raceTrack.*;
  * @param <T> type of the racetrack
  */
 public interface raceHandler<T> {
-    /**
-     * The current state of the racetrack
-     * @return the racetrack
-     */
-    raceTrack<T> getRaceTrack();
 
     /**
      * Update a player's position on the racetrack
+     * @param raceTrack racetrack of the game
      * @param player player to change the position of
      * @param position new position to assign to the player
      * @throws NullPointerException if at least one of the passed arguments is null
      * @throws IllegalArgumentException if the passed player is not in the race
      */
-    void updatePlayerPosition(Player player, Position position);
+    void updatePlayerPosition(raceTrack<T> raceTrack, Player player, Position position);
 
     /**
      * Eliminate the player from the race
+     * @param raceTrack racetrack of the game
      * @param player player to eliminate
      * @throws NullPointerException if the passed player is null
      * @throws IllegalArgumentException if the passed player is not in the race
      */
-    void removePlayer(Player player);
+    void removePlayer(raceTrack<T> raceTrack, Player player);
 
     /**
      * Check if Player goes off racetrack
+     * @param raceTrack racetrack of the game
      * @param position position to check
      * @return True if Player goes off racetrack, False otherwise
      */
-    boolean checkPosition(Position position);
+    boolean checkPosition(raceTrack<T> raceTrack, Position position);
 
     /**
      * Check if a player is trying to cross the finish line incorrectly
+     * @param raceTrack racetrack of the game
      * @param currentPosition current position of the player
      * @param newPosition position to check
      * @return True if the move is incorrect, False otherwise
      */
-    boolean checkFalseMove(Position currentPosition, Position newPosition);
+    boolean checkFalseMove(raceTrack<T> raceTrack, Position currentPosition, Position newPosition);
 }

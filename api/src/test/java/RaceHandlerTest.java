@@ -37,41 +37,41 @@ public class RaceHandlerTest {
 
     private final FileIO<char[][]> fileIO = new FileIOFormulaUno("racetrack.txt");
     private final raceTrack<char[][]> raceTrack = new raceTrackFormulaUno(fileIO);
-    private final raceHandler<char[][]> raceHandlerFormulaUno = new raceHandlerFormulaUno(raceTrack);
+    private final raceHandler<char[][]> raceHandlerFormulaUno = new raceHandlerFormulaUno();
 
     public RaceHandlerTest() throws FileReaderError {
     }
     
     @Test
     public void updatePlayerPositionTest() {
-        char[][] track = raceHandlerFormulaUno.getRaceTrack().getTrack();
+        char[][] track = raceTrack.getTrack();
         Player player = new botPlayer("1B",'B',
                 new gameMachineFormulaUno(new positionFormulaUno(3,3)));
-        raceHandlerFormulaUno.getRaceTrack().getPlayers().add(player);
-        raceHandlerFormulaUno.updatePlayerPosition(player, new positionFormulaUno(3,4));
+        raceTrack.getPlayers().add(player);
+        raceHandlerFormulaUno.updatePlayerPosition(raceTrack,player, new positionFormulaUno(3,4));
         assertEquals('B', track[4][3]);
     }
 
     @Test
     public void removePlayerTest() {
-        raceHandlerFormulaUno.removePlayer(raceHandlerFormulaUno.getRaceTrack().getPlayers().getFirst());
-        assertEquals(3, raceHandlerFormulaUno.getRaceTrack().getPlayers().size());
+        raceHandlerFormulaUno.removePlayer(raceTrack, raceTrack.getPlayers().getFirst());
+        assertEquals(3, raceTrack.getPlayers().size());
     }
 
     @Test
     public void checkPositionTest() {
-        boolean check = raceHandlerFormulaUno.checkPosition(new positionFormulaUno(0,0));
+        boolean check = raceHandlerFormulaUno.checkPosition(raceTrack, new positionFormulaUno(0,0));
         assertTrue(check);
-        boolean check1 = raceHandlerFormulaUno.checkPosition(new positionFormulaUno(2,7));
+        boolean check1 = raceHandlerFormulaUno.checkPosition(raceTrack, new positionFormulaUno(2,7));
         assertFalse(check1);
     }
 
    @Test
    public void checkFalseMoveTest() {
-        boolean check = raceHandlerFormulaUno.checkFalseMove(new positionFormulaUno(2,5),
+        boolean check = raceHandlerFormulaUno.checkFalseMove(raceTrack, new positionFormulaUno(2,5),
                 new positionFormulaUno(2,11));
         assertTrue(check);
-        boolean check1 = raceHandlerFormulaUno.checkFalseMove(new positionFormulaUno(2,5),
+        boolean check1 = raceHandlerFormulaUno.checkFalseMove(raceTrack, new positionFormulaUno(2,5),
                 new positionFormulaUno(2,4));
         assertFalse(check1);
    }
