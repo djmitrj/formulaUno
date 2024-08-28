@@ -135,6 +135,6 @@ public class gameEngineFormulaUno implements gameEngine {
         } else {
             this.consoleIO.errorMove(player);
         }
-        this.consoleIO.printTrack(this.raceHandlerFormulaUno.getRaceTrack());
+        this.consoleIO.printTrack(this.raceHandlerFormulaUno.getRaceTrack().getTrack());
     }
 }
