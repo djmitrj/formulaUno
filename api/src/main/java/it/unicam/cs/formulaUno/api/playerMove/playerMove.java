@@ -23,25 +23,17 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package it.unicam.cs.formulaUno.api.Player;
+package it.unicam.cs.formulaUno.api.playerMove;
 
-import it.unicam.cs.formulaUno.api.gameMachine.*;
+import it.unicam.cs.formulaUno.api.Player.Player;
+import it.unicam.cs.formulaUno.api.Position.Position;
 
-public interface Player {
-    /**
-     * Returns the player identifier
-     * @return player identifier
-     */
-    String getId();
-    /**
-     * Returns the player category (B or I)
-     * @return player category
-     */
-    char getCategory();
+public interface playerMove {
 
     /**
-     * Returns the player's machine
-     * @return player's machine
+     * Move made by the player
+     * @param player player of duty
+     * @return possible future position of the player
      */
-    gameMachine getGameMachine();
+    Position move(Player player);
 }

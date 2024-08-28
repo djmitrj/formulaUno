@@ -29,7 +29,7 @@ import it.unicam.cs.formulaUno.api.gameMachine.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 
 public class PlayerTest {
 
@@ -39,13 +39,6 @@ public class PlayerTest {
     public void botPlayerTest() {
         assertEquals("1B", playerB.getId());
         assertEquals('B', playerB.getCategory());
-    }
-
-    @Test
-    public void botPlayerMoveTest() {
-        Position position = playerB.move();
-        assertNotNull(position);
-        System.out.println(position.x() +", "+position.y());
     }
 
 }

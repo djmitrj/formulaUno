@@ -28,6 +28,7 @@ import it.unicam.cs.formulaUno.api.Player.*;
 import it.unicam.cs.formulaUno.api.Position.*;
 import it.unicam.cs.formulaUno.api.gameMachine.*;
 import it.unicam.cs.formulaUno.api.raceHandler.*;
+import it.unicam.cs.formulaUno.api.raceTrack.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -35,25 +36,26 @@ import static org.junit.jupiter.api.Assertions.*;
 public class RaceHandlerTest {
 
     private final FileIO<char[][]> fileIO = new FileIOFormulaUno("racetrack.txt");
-    private final raceHandler raceHandlerFormulaUno = new raceHandlerFormulaUno(fileIO);
+    private final raceTrack<char[][]> raceTrack = new raceTrackFormulaUno(fileIO);
+    private final raceHandler<char[][]> raceHandlerFormulaUno = new raceHandlerFormulaUno(raceTrack);
 
     public RaceHandlerTest() throws FileReaderError {
     }
     
     @Test
     public void updatePlayerPositionTest() {
-        char[][] track = raceHandlerFormulaUno.getRacetrack();
+        char[][] track = raceHandlerFormulaUno.getRaceTrack().getTrack();
         Player player = new botPlayer("1B",'B',
                 new gameMachineFormulaUno(new positionFormulaUno(3,3)));
-        raceHandlerFormulaUno.getPlayers().add(player);
+        raceHandlerFormulaUno.getRaceTrack().getPlayers().add(player);
         raceHandlerFormulaUno.updatePlayerPosition(player, new positionFormulaUno(3,4));
         assertEquals('B', track[4][3]);
     }
 
     @Test
     public void removePlayerTest() {
-        raceHandlerFormulaUno.removePlayer(raceHandlerFormulaUno.getPlayers().getFirst());
-        assertEquals(3, raceHandlerFormulaUno.getPlayers().size());
+        raceHandlerFormulaUno.removePlayer(raceHandlerFormulaUno.getRaceTrack().getPlayers().getFirst());
+        assertEquals(3, raceHandlerFormulaUno.getRaceTrack().getPlayers().size());
     }
 
     @Test

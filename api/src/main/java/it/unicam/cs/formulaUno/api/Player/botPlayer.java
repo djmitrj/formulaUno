@@ -41,13 +41,4 @@ public class botPlayer extends genericPlayer {
         super(id, category, machine);
     }
 
-    @Override
-    public Position move() {
-        Random rand = new Random();
-        if(getGameMachine().getLastPosition() == null) {
-            return new positionFormulaUno(getGameMachine().getPosition().x(),
-                    getGameMachine().getPosition().y() - 1);
-        }
-        return getGameMachine().possibleMoves().get(rand.nextInt(getGameMachine().possibleMoves().size()));
-    }
 }

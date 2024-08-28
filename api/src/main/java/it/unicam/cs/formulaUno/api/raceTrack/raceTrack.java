@@ -23,51 +23,29 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package it.unicam.cs.formulaUno.api.Console;
+package it.unicam.cs.formulaUno.api.raceTrack;
 
-import it.unicam.cs.formulaUno.api.Player.*;
+import it.unicam.cs.formulaUno.api.Player.Player;
 
 import java.util.List;
 
-public interface ConsoleIO {
-    /**
-     * Print the racetrack on the console
-     * @param racetrack racetrack
-     * @param <T> type of the racetrack
-     */
-    <T> void printTrack(T racetrack);
+public interface raceTrack<T> {
 
     /**
-     * Print the list of players competing with their positions
-     * @param players list of players competing
+     * Returns the racetrack
+     * @return racetrack
      */
-    void printPlayers(List<Player> players);
+    T getTrack();
 
     /**
-     * Print the race start message
+     * Returns the list of competing players
+     * @return list of competing players
      */
-    void messageStart();
+    List<Player> getPlayers();
 
     /**
-     * All Players have been eliminated, the competition is over
+     * Returns the finish line coordinates of the racetrack
+     * @return finish line coordinates of the racetrack
      */
-    void messageFinish();
-
-    /**
-     * Victory message
-     * @param player Winning player
-     */
-    void messageVictory(Player player);
-
-    /**
-     * Player on duty
-     * @param player Player on duty
-     */
-    void playerTurn(Player player);
-
-    /**
-     * Wrong move
-     */
-    void errorMove(Player player);
-
+    List<Integer> getFinishLine();
 }

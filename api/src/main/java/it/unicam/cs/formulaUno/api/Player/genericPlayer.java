@@ -25,7 +25,6 @@
 
 package it.unicam.cs.formulaUno.api.Player;
 
-import it.unicam.cs.formulaUno.api.Position.*;
 import it.unicam.cs.formulaUno.api.gameMachine.*;
 
 public abstract class genericPlayer implements Player {
@@ -64,7 +63,4 @@ public abstract class genericPlayer implements Player {
     public gameMachine getGameMachine() {
         return this.machine;
     }
-
-    @Override
-    public abstract Position move();
 }

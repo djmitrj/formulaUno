@@ -23,25 +23,37 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package it.unicam.cs.formulaUno.api.Player;
+package it.unicam.cs.formulaUno.api.raceTrack;
 
-import it.unicam.cs.formulaUno.api.gameMachine.*;
+import it.unicam.cs.formulaUno.api.File.FileIO;
+import it.unicam.cs.formulaUno.api.File.FileReaderError;
+import it.unicam.cs.formulaUno.api.Player.Player;
 
-public interface Player {
-    /**
-     * Returns the player identifier
-     * @return player identifier
-     */
-    String getId();
-    /**
-     * Returns the player category (B or I)
-     * @return player category
-     */
-    char getCategory();
+import java.util.List;
 
-    /**
-     * Returns the player's machine
-     * @return player's machine
-     */
-    gameMachine getGameMachine();
+public class raceTrackFormulaUno implements raceTrack<char[][]> {
+
+    private final char[][] racetrack;
+    private final List<Player> players;
+    private final List<Integer> finishLine;
+
+    public raceTrackFormulaUno(FileIO<char[][]> fileIO) throws FileReaderError {
+        this.racetrack = fileIO.parseTrack(fileIO.readFile());
+        this.players = fileIO.parsePlayers(getTrack());
+        this.finishLine = fileIO.parseFinishLine(getPlayers());
+    }
+    @Override
+    public char[][] getTrack() {
+        return this.racetrack;
+    }
+
+    @Override
+    public List<Player> getPlayers() {
+        return this.players;
+    }
+
+    @Override
+    public List<Integer> getFinishLine() {
+        return this.finishLine;
+    }
 }

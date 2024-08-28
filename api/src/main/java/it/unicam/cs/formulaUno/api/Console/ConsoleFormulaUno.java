@@ -29,7 +29,7 @@ import it.unicam.cs.formulaUno.api.Player.*;
 
 import java.util.List;
 
-public class ConsoleIOFormulaUno implements ConsoleIO {
+public class ConsoleFormulaUno implements Console {
 
     @Override
     public <T> void printTrack(T racetrack) {

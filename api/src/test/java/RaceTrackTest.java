@@ -23,25 +23,26 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package it.unicam.cs.formulaUno.api.Player;
-
+import it.unicam.cs.formulaUno.api.File.FileIO;
+import it.unicam.cs.formulaUno.api.File.FileIOFormulaUno;
+import it.unicam.cs.formulaUno.api.File.FileReaderError;
+import it.unicam.cs.formulaUno.api.Player.*;
+import it.unicam.cs.formulaUno.api.Position.*;
 import it.unicam.cs.formulaUno.api.gameMachine.*;
+import it.unicam.cs.formulaUno.api.raceTrack.raceTrack;
+import it.unicam.cs.formulaUno.api.raceTrack.raceTrackFormulaUno;
+import org.junit.jupiter.api.Test;
 
-public interface Player {
-    /**
-     * Returns the player identifier
-     * @return player identifier
-     */
-    String getId();
-    /**
-     * Returns the player category (B or I)
-     * @return player category
-     */
-    char getCategory();
+public class RaceTrackTest {
 
-    /**
-     * Returns the player's machine
-     * @return player's machine
-     */
-    gameMachine getGameMachine();
+    private final FileIO<char[][]> fileIO = new FileIOFormulaUno("racetrack.txt");
+    private final raceTrack<char[][]> raceTrack = new raceTrackFormulaUno(fileIO);
+
+    public RaceTrackTest() throws FileReaderError {
+    }
+
+    @Test
+    public void getTrackTest() {
+
+    }
 }

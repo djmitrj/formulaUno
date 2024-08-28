@@ -27,27 +27,18 @@ package it.unicam.cs.formulaUno.api.raceHandler;
 
 import it.unicam.cs.formulaUno.api.Player.*;
 import it.unicam.cs.formulaUno.api.Position.*;
+import it.unicam.cs.formulaUno.api.raceTrack.*;
 
-import java.util.List;
 
-public interface raceHandler {
+/**
+ * @param <T> type of the racetrack
+ */
+public interface raceHandler<T> {
     /**
-     * Returns the racetrack
-     * @return racetrack
+     * The current state of the racetrack
+     * @return the racetrack
      */
-    <T> T getRacetrack();
-
-    /**
-     * Returns the list of competing players
-     * @return list of competing players
-     */
-    List<Player> getPlayers();
-
-    /**
-     * Returns the finish line coordinates of the racetrack
-     * @return finish line coordinates of the racetrack
-     */
-    List<Integer> getFinishLine();
+    raceTrack<T> getRaceTrack();
 
     /**
      * Update a player's position on the racetrack

@@ -28,14 +28,18 @@ package it.unicam.cs.formulaUno.app;
 import it.unicam.cs.formulaUno.api.Console.*;
 import it.unicam.cs.formulaUno.api.File.*;
 import it.unicam.cs.formulaUno.api.gameEngine.*;
+import it.unicam.cs.formulaUno.api.playerMove.*;
 import it.unicam.cs.formulaUno.api.raceHandler.*;
+import it.unicam.cs.formulaUno.api.raceTrack.*;
 
 public class Main {
     public static void main(String[] args) throws FileReaderError {
         FileIO<char[][]> fileIO = new FileIOFormulaUno("racetrack.txt");
-        ConsoleIO consoleIO = new ConsoleIOFormulaUno();
-        raceHandler rhFormulaUno = new raceHandlerFormulaUno(fileIO);
-        gameEngine geFormulaUno = new gameEngineFormulaUno(rhFormulaUno, consoleIO);
+        Console consoleIO = new ConsoleFormulaUno();
+        raceTrack<char[][]> raceTrack = new raceTrackFormulaUno(fileIO);
+        raceHandler<char[][]> rhFormulaUno = new raceHandlerFormulaUno(raceTrack);
+        playerMove pmFormulaUno = new playerMoveFormulaUno();
+        gameEngine geFormulaUno = new gameEngineFormulaUno(rhFormulaUno, consoleIO, pmFormulaUno);
         geFormulaUno.start();
     }
 }

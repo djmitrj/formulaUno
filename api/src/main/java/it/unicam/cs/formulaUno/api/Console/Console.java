@@ -23,25 +23,51 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package it.unicam.cs.formulaUno.api.Player;
+package it.unicam.cs.formulaUno.api.Console;
 
-import it.unicam.cs.formulaUno.api.gameMachine.*;
+import it.unicam.cs.formulaUno.api.Player.*;
 
-public interface Player {
+import java.util.List;
+
+public interface Console {
     /**
-     * Returns the player identifier
-     * @return player identifier
+     * Print the racetrack on the console
+     * @param racetrack racetrack
+     * @param <T> type of the racetrack
      */
-    String getId();
-    /**
-     * Returns the player category (B or I)
-     * @return player category
-     */
-    char getCategory();
+    <T> void printTrack(T racetrack);
 
     /**
-     * Returns the player's machine
-     * @return player's machine
+     * Print the list of players competing with their positions
+     * @param players list of players competing
      */
-    gameMachine getGameMachine();
+    void printPlayers(List<Player> players);
+
+    /**
+     * Print the race start message
+     */
+    void messageStart();
+
+    /**
+     * All Players have been eliminated, the competition is over
+     */
+    void messageFinish();
+
+    /**
+     * Victory message
+     * @param player Winning player
+     */
+    void messageVictory(Player player);
+
+    /**
+     * Player on duty
+     * @param player Player on duty
+     */
+    void playerTurn(Player player);
+
+    /**
+     * Wrong move
+     */
+    void errorMove(Player player);
+
 }

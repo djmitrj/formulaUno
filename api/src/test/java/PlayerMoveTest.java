@@ -23,25 +23,21 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package it.unicam.cs.formulaUno.api.Player;
-
+import it.unicam.cs.formulaUno.api.Player.Player;
+import it.unicam.cs.formulaUno.api.Player.botPlayer;
 import it.unicam.cs.formulaUno.api.gameMachine.*;
+import it.unicam.cs.formulaUno.api.Position.*;
+import it.unicam.cs.formulaUno.api.playerMove.*;
+import org.junit.jupiter.api.Test;
 
-public interface Player {
-    /**
-     * Returns the player identifier
-     * @return player identifier
-     */
-    String getId();
-    /**
-     * Returns the player category (B or I)
-     * @return player category
-     */
-    char getCategory();
+import static org.junit.jupiter.api.Assertions.*;
 
-    /**
-     * Returns the player's machine
-     * @return player's machine
-     */
-    gameMachine getGameMachine();
+public class PlayerMoveTest {
+
+    @Test
+    public void moveTest() {
+        Player player = new botPlayer("1B",'B',new gameMachineFormulaUno(new positionFormulaUno(1,2)));
+        playerMove playerMove = new playerMoveFormulaUno();
+        assertEquals(new positionFormulaUno(1,1),playerMove.move(player));
+    }
 }

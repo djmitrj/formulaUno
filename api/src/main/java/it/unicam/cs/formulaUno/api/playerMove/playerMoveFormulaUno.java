@@ -23,25 +23,28 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package it.unicam.cs.formulaUno.api.Player;
+package it.unicam.cs.formulaUno.api.playerMove;
 
-import it.unicam.cs.formulaUno.api.gameMachine.*;
+import it.unicam.cs.formulaUno.api.Player.Player;
+import it.unicam.cs.formulaUno.api.Player.botPlayer;
+import it.unicam.cs.formulaUno.api.Position.Position;
+import it.unicam.cs.formulaUno.api.Position.positionFormulaUno;
 
-public interface Player {
-    /**
-     * Returns the player identifier
-     * @return player identifier
-     */
-    String getId();
-    /**
-     * Returns the player category (B or I)
-     * @return player category
-     */
-    char getCategory();
+import java.util.Random;
 
-    /**
-     * Returns the player's machine
-     * @return player's machine
-     */
-    gameMachine getGameMachine();
+public class playerMoveFormulaUno implements playerMove{
+
+    @Override
+    public Position move(Player player) {
+        if(player == null) throw new NullPointerException("The passed player is null");
+        if(player instanceof botPlayer) {
+            Random rand = new Random();
+            if(player.getGameMachine().getLastPosition() == null) {
+                return new positionFormulaUno(player.getGameMachine().getPosition().x(),
+                        player.getGameMachine().getPosition().y() - 1);
+            }
+            return player.getGameMachine().possibleMoves().get(rand.nextInt(player.getGameMachine().possibleMoves().size()));
+        }
+        return null;
+    }
 }
