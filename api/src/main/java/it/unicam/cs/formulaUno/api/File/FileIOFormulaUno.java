@@ -30,7 +30,6 @@ import it.unicam.cs.formulaUno.api.gameMachine.*;
 import it.unicam.cs.formulaUno.api.Position.*;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -62,7 +61,7 @@ public class FileIOFormulaUno implements FileIO<char[][]> {
                 while ((line = reader.readLine()) != null) { track.add(line);}
                 return track;
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             throw new FileReaderError("Error reading the file");
         }
     }

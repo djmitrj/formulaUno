@@ -59,6 +59,7 @@ public abstract class genericPlayer implements Player {
     public char getCategory() {
         return this.category;
     }
+
     @Override
     public gameMachine getGameMachine() {
         return this.machine;
