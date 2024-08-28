@@ -35,7 +35,7 @@ import it.unicam.cs.formulaUno.api.raceTrack.*;
 public class Main {
     public static void main(String[] args) throws FileReaderError {
         FileIO<char[][]> fileIO = new FileIOFormulaUno("racetrack.txt");
-        Console consoleIO = new ConsoleFormulaUno();
+        Console<char[][]> consoleIO = new ConsoleFormulaUno();
         raceTrack<char[][]> raceTrack = new raceTrackFormulaUno(fileIO);
         raceHandler<char[][]> rhFormulaUno = new raceHandlerFormulaUno();
         playerMove pmFormulaUno = new playerMoveFormulaUno();

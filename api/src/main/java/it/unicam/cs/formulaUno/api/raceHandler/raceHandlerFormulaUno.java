@@ -41,7 +41,7 @@ public class raceHandlerFormulaUno implements raceHandler<char[][]> {
 
     @Override
     public void updatePlayerPosition(raceTrack<char[][]> racetrack, Player player, Position position) {
-        if(player == null || position == null) {
+        if(racetrack == null || player == null || position == null) {
             throw new NullPointerException("At least one of the passed arguments is null");
         }
         if(!racetrack.getPlayers().contains(player)) {
@@ -53,8 +53,8 @@ public class raceHandlerFormulaUno implements raceHandler<char[][]> {
 
     @Override
     public void removePlayer(raceTrack<char[][]> racetrack, Player player) {
-        if(player == null ) {
-            throw new NullPointerException("The passed player is null");
+        if(racetrack == null || player == null ) {
+            throw new NullPointerException("At least one of the passed arguments is null");
         }
         if(!racetrack.getPlayers().contains(player)) {
             throw new IllegalArgumentException("The passed player is not in the race");
@@ -65,8 +65,8 @@ public class raceHandlerFormulaUno implements raceHandler<char[][]> {
 
     @Override
     public boolean checkPosition(raceTrack<char[][]> racetrack, Position position) {
-        if(position == null) {
-            throw new NullPointerException("The passed position is null");
+        if(racetrack == null || position == null) {
+            throw new NullPointerException("At least one of the passed arguments is null");
         }
         return (position.y() >= racetrack.getTrack().length -1 ||
                 position.y() < 1 ||
@@ -77,7 +77,7 @@ public class raceHandlerFormulaUno implements raceHandler<char[][]> {
 
     @Override
     public boolean checkFalseMove(raceTrack<char[][]> racetrack, Position currentPosition, Position newPosition) {
-        if(currentPosition == null || newPosition == null) {
+        if(racetrack == null || currentPosition == null || newPosition == null) {
             throw new NullPointerException("At least one of the passed arguments is null");
         }
         return newPosition.y() >= racetrack.getFinishLine().get(1)

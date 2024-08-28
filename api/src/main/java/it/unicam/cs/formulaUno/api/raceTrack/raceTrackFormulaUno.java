@@ -38,6 +38,7 @@ public class raceTrackFormulaUno implements raceTrack<char[][]> {
     private final List<Integer> finishLine;
 
     public raceTrackFormulaUno(FileIO<char[][]> fileIO) throws FileReaderError {
+        if(fileIO == null) throw new NullPointerException("The parameter is null");
         this.racetrack = fileIO.parseTrack(fileIO.readFile());
         this.players = fileIO.parsePlayers(this.getTrack());
         this.finishLine = fileIO.parseFinishLine(this.getPlayers());

@@ -25,10 +25,7 @@
 
 package it.unicam.cs.formulaUno.api.Player;
 
-import it.unicam.cs.formulaUno.api.Position.*;
 import it.unicam.cs.formulaUno.api.gameMachine.*;
-
-import java.util.Random;
 
 public class botPlayer extends genericPlayer {
     /**

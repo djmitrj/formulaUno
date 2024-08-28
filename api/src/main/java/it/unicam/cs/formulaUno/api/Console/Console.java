@@ -29,13 +29,15 @@ import it.unicam.cs.formulaUno.api.Player.*;
 
 import java.util.List;
 
-public interface Console {
+/**
+ * @param <T> type of the racetrack
+ */
+public interface Console<T> {
     /**
      * Print the racetrack on the console
      * @param racetrack racetrack
-     * @param <T> type of the racetrack
      */
-    <T> void printTrack(T racetrack);
+    void printTrack(T racetrack);
 
     /**
      * Print the list of players competing with their positions

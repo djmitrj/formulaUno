@@ -35,7 +35,7 @@ import it.unicam.cs.formulaUno.api.raceTrack.*;
 public class gameEngineFormulaUno implements gameEngine {
 
     private boolean gameRunning;
-    private final Console console;
+    private final Console<char[][]> console;
     private final raceHandler<char[][]> raceHandlerFormulaUno;
     private final raceTrack<char[][]> raceTrackFormulaUno;
     private final playerMove playerMoveFormulaUno;
@@ -46,7 +46,7 @@ public class gameEngineFormulaUno implements gameEngine {
      * @param raceHandlerFormulaUno handler of racetrack and competing players
      */
     public gameEngineFormulaUno(raceHandler<char[][]> raceHandlerFormulaUno,raceTrack<char[][]> raceTrackFormulaUno,
-                                Console console, playerMove playerMoveFormulaUno) {
+                                Console<char[][]> console, playerMove playerMoveFormulaUno) {
         if(raceHandlerFormulaUno == null || raceTrackFormulaUno == null
                 || console == null || playerMoveFormulaUno == null)
             throw new NullPointerException("At least one of the parameters is null");

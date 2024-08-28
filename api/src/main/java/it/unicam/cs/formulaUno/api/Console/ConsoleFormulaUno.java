@@ -29,13 +29,12 @@ import it.unicam.cs.formulaUno.api.Player.*;
 
 import java.util.List;
 
-public class ConsoleFormulaUno implements Console {
+public class ConsoleFormulaUno implements Console<char[][]> {
 
     @Override
-    public <T> void printTrack(T racetrack) {
+    public void printTrack(char[][] racetrack) {
         if(racetrack == null) throw new NullPointerException("The passed racetrack is null");
-        char[][] trackFormulaUno = (char[][]) racetrack;
-        for (char[] chars : trackFormulaUno) {
+        for (char[] chars : racetrack) {
             for (char aChar : chars) {
                 System.out.print(aChar);
             }
