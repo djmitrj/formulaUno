@@ -42,6 +42,8 @@ public class gameEngineFormulaUno implements gameEngine {
      * @param raceHandlerFormulaUno handler of racetrack and competing players
      */
     public gameEngineFormulaUno(raceHandler raceHandlerFormulaUno, ConsoleIO consoleIO) {
+        if(raceHandlerFormulaUno == null || consoleIO == null)
+            throw new NullPointerException("At least one of the parameters is null");
         this.gameRunning = true;
         this.consoleIO = consoleIO;
         this.raceHandlerFormulaUno = raceHandlerFormulaUno;
@@ -70,6 +72,7 @@ public class gameEngineFormulaUno implements gameEngine {
      * @return True if Player won, False otherwise
      */
     private boolean checkVictory(Player player) {
+        if(player == null) throw new NullPointerException("The passed player is null");
         if(player.getGameMachine().getLastPosition() == null) return false;
         if(this.raceHandlerFormulaUno.getFinishLine().get(1) >= player.getGameMachine().getPosition().y()
                 && player.getGameMachine().getLastPosition().y() > this.raceHandlerFormulaUno.getFinishLine().get(1)
@@ -103,6 +106,8 @@ public class gameEngineFormulaUno implements gameEngine {
      * @return True if the move is valid, False otherwise and the Player will be eliminated from the race
      */
     private boolean checkMove(Player player, Position newPosition) {
+        if(player == null || newPosition == null)
+            throw new NullPointerException("At least one of the parameters is null");
         if(this.raceHandlerFormulaUno.checkPosition(newPosition) ||
            (this.raceHandlerFormulaUno.checkFalseMove(player.getGameMachine().getPosition(),newPosition))) {
                 this.raceHandlerFormulaUno.removePlayer(player);
@@ -116,6 +121,7 @@ public class gameEngineFormulaUno implements gameEngine {
      * @param player player of duty
      */
     private void playerTurn(Player player)  {
+        if(player == null) throw new NullPointerException("The passed player is null");
         this.consoleIO.playerTurn(player);
         Position newPosition = player.move();
         if(this.checkMove(player, newPosition)) {

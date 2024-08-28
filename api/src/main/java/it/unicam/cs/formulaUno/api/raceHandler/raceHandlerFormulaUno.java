@@ -43,6 +43,7 @@ public class raceHandlerFormulaUno implements raceHandler {
      * @throws FileReaderError Exception in case of incorrect reading of the file
      */
     public raceHandlerFormulaUno(FileIO<char[][]> fileIO) throws FileReaderError {
+        if(fileIO == null) throw new NullPointerException("The passed parameter is null");
         this.racetrack = fileIO.parseTrack(fileIO.readFile());
         this.players = fileIO.parsePlayers(this.racetrack);
         this.finishLine = fileIO.parseFinishLine(this.players);

@@ -33,6 +33,7 @@ public class ConsoleIOFormulaUno implements ConsoleIO {
 
     @Override
     public <T> void printTrack(T racetrack) {
+        if(racetrack == null) throw new NullPointerException("The passed racetrack is null");
         char[][] trackFormulaUno = (char[][]) racetrack;
         for (char[] chars : trackFormulaUno) {
             for (char aChar : chars) {
@@ -44,6 +45,7 @@ public class ConsoleIOFormulaUno implements ConsoleIO {
 
     @Override
     public void printPlayers(List<Player> players) {
+        if(players == null) throw new NullPointerException("The passed list is null");
         System.out.println("Players in race:");
         for(Player p : players) {
             System.out.println("Id: "+p.getId()
@@ -55,6 +57,7 @@ public class ConsoleIOFormulaUno implements ConsoleIO {
 
     @Override
     public void messageVictory(Player player) {
+        if(player == null) throw new NullPointerException("The passed player is null");
         System.out.println("Race over, player wins: " + player.getId());
     }
 
@@ -65,11 +68,13 @@ public class ConsoleIOFormulaUno implements ConsoleIO {
 
     @Override
     public void playerTurn(Player player) {
+        if(player == null) throw new NullPointerException("The passed player is null");
         System.out.println("Player of duty: "+player.getId());
     }
 
     @Override
     public void errorMove(Player player) {
+        if(player == null) throw new NullPointerException("The passed player is null");
         System.out.println("Invalid move by the Player: "+player.getId());
     }
 
