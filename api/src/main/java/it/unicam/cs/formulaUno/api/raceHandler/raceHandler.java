@@ -29,7 +29,6 @@ import it.unicam.cs.formulaUno.api.Player.*;
 import it.unicam.cs.formulaUno.api.Position.*;
 import it.unicam.cs.formulaUno.api.raceTrack.*;
 
-
 /**
  * @param <T> type of the racetrack
  */
@@ -49,7 +48,7 @@ public interface raceHandler<T> {
      * Eliminate the player from the race
      * @param raceTrack racetrack of the game
      * @param player player to eliminate
-     * @throws NullPointerException if the passed player is null
+     * @throws NullPointerException if at least one of the passed arguments is null
      * @throws IllegalArgumentException if the passed player is not in the race
      */
     void removePlayer(raceTrack<T> raceTrack, Player player);
@@ -58,6 +57,7 @@ public interface raceHandler<T> {
      * Check if Player goes off racetrack
      * @param raceTrack racetrack of the game
      * @param position position to check
+     * @throws NullPointerException if at least one of the passed arguments is null
      * @return True if Player goes off racetrack, False otherwise
      */
     boolean checkPosition(raceTrack<T> raceTrack, Position position);
@@ -67,6 +67,7 @@ public interface raceHandler<T> {
      * @param raceTrack racetrack of the game
      * @param currentPosition current position of the player
      * @param newPosition position to check
+     * @throws NullPointerException if at least one of the passed arguments is null
      * @return True if the move is incorrect, False otherwise
      */
     boolean checkFalseMove(raceTrack<T> raceTrack, Position currentPosition, Position newPosition);

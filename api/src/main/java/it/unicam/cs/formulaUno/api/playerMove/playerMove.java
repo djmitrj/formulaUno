@@ -33,6 +33,7 @@ public interface playerMove {
     /**
      * Move made by the player
      * @param player player of duty
+     * @throws NullPointerException if the player is null
      * @return possible future position of the player
      */
     Position move(Player player);

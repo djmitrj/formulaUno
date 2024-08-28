@@ -37,6 +37,11 @@ public class raceTrackFormulaUno implements raceTrack<char[][]> {
     private final List<Player> players;
     private final List<Integer> finishLine;
 
+    /**
+     * Constructor of the raceTrack of Formula Uno game
+     * @param fileIO file read as input
+     * @throws FileReaderError Exception in case of incorrect reading of the file
+     */
     public raceTrackFormulaUno(FileIO<char[][]> fileIO) throws FileReaderError {
         if(fileIO == null) throw new NullPointerException("The parameter is null");
         this.racetrack = fileIO.parseTrack(fileIO.readFile());

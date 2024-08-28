@@ -41,9 +41,11 @@ public class gameEngineFormulaUno implements gameEngine {
     private final playerMove playerMoveFormulaUno;
 
     /**
-     * Constructor of the Formula Uno game engine
-     * @param console console's operations
+     * Constructor of the Formula Uno's game engine
      * @param raceHandlerFormulaUno handler of racetrack and competing players
+     * @param raceTrackFormulaUno racetrack of the game
+     * @param console console's operations
+     * @param playerMoveFormulaUno get the move of the player
      */
     public gameEngineFormulaUno(raceHandler<char[][]> raceHandlerFormulaUno,raceTrack<char[][]> raceTrackFormulaUno,
                                 Console<char[][]> console, playerMove playerMoveFormulaUno) {

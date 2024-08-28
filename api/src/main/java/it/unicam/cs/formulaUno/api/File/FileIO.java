@@ -43,6 +43,7 @@ public interface FileIO<T> {
     /**
      * Parse the input file and generates the racetrack
      * @param file file read as input
+     * @throws NullPointerException if the passed list is null
      * @return racetrack
      */
     T parseTrack(List<String> file);
@@ -50,6 +51,7 @@ public interface FileIO<T> {
     /**
      * Parse the racetrack and generates the list of competing players
      * @param racetrack racetrack
+     * @throws NullPointerException if the passed racetrack is null
      * @return the list of competing players
      */
     List<Player> parsePlayers(T racetrack);
@@ -57,6 +59,7 @@ public interface FileIO<T> {
     /**
      * Generate the coordinates of the race finish line
      * @param players list of competing players
+     * @throws NullPointerException if the passed list is null
      * @return Coordinates of the finish line
      */
     List<Integer> parseFinishLine(List<Player> players);
