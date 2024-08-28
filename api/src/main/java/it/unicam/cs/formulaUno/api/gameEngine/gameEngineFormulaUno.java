@@ -131,7 +131,7 @@ public class gameEngineFormulaUno implements gameEngine {
     private void playerTurn(Player player)  {
         if(player == null) throw new NullPointerException("The passed player is null");
         this.console.playerTurn(player);
-        Position newPosition = playerMoveFormulaUno.move(player);
+        Position newPosition = this.playerMoveFormulaUno.move(player);
         if(this.checkMove(player, newPosition)) {
             this.raceHandlerFormulaUno.updatePlayerPosition(this.raceTrackFormulaUno,player,newPosition);
             player.getGameMachine().setLastPosition(player.getGameMachine().getPosition());
