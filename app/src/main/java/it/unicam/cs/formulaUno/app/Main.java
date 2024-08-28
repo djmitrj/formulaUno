@@ -35,12 +35,12 @@ import it.unicam.cs.formulaUno.api.raceTrack.*;
 public class Main {
     public static void main(String[] args) throws FileReaderError {
         FileIO<char[][]> fileIO = new FileIOFormulaUno("racetrack.txt");
-        Console<char[][]> consoleIO = new ConsoleFormulaUno();
+        Console<char[][]> console = new ConsoleFormulaUno();
         raceTrack<char[][]> raceTrack = new raceTrackFormulaUno(fileIO);
         raceHandler<char[][]> rhFormulaUno = new raceHandlerFormulaUno();
         playerMove pmFormulaUno = new playerMoveFormulaUno();
         gameEngine geFormulaUno = new gameEngineFormulaUno(rhFormulaUno, raceTrack,
-                consoleIO, pmFormulaUno);
+                console, pmFormulaUno);
         geFormulaUno.start();
     }
 }

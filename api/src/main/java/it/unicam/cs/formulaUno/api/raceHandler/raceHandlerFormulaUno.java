@@ -31,14 +31,7 @@ import it.unicam.cs.formulaUno.api.Position.*;
 import it.unicam.cs.formulaUno.api.raceTrack.*;
 
 public class raceHandlerFormulaUno implements raceHandler<char[][]> {
-
-    /**
-     * Constructor of the setup of the racetrack and the players competing in the Formula Uno game
-     */
-    public raceHandlerFormulaUno() {
-
-    }
-
+    
     @Override
     public void updatePlayerPosition(raceTrack<char[][]> racetrack, Player player, Position position) {
         if(racetrack == null || player == null || position == null) {
