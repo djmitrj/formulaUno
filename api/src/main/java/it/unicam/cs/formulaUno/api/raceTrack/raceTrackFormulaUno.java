@@ -25,8 +25,8 @@
 
 package it.unicam.cs.formulaUno.api.raceTrack;
 
-import it.unicam.cs.formulaUno.api.File.FileIO;
-import it.unicam.cs.formulaUno.api.File.FileReaderError;
+import it.unicam.cs.formulaUno.api.raceTrackParser.raceTrackParser;
+import it.unicam.cs.formulaUno.api.raceTrackParser.FileReaderError;
 import it.unicam.cs.formulaUno.api.Player.Player;
 
 import java.util.List;
@@ -39,15 +39,16 @@ public class raceTrackFormulaUno implements raceTrack<char[][]> {
 
     /**
      * Constructor of the raceTrack of Formula Uno game
-     * @param fileIO file read as input
+     * @param raceTrackParser file read as input
      * @throws FileReaderError Exception in case of incorrect reading of the file
      */
-    public raceTrackFormulaUno(FileIO<char[][]> fileIO) throws FileReaderError {
-        if(fileIO == null) throw new NullPointerException("The parameter is null");
-        this.racetrack = fileIO.parseTrack(fileIO.readFile());
-        this.players = fileIO.parsePlayers(this.getTrack());
-        this.finishLine = fileIO.parseFinishLine(this.getPlayers());
+    public raceTrackFormulaUno(raceTrackParser<char[][]> raceTrackParser) throws FileReaderError {
+        if(raceTrackParser == null) throw new NullPointerException("The parameter is null");
+        this.racetrack = raceTrackParser.parseTrack(raceTrackParser.readFile());
+        this.players = raceTrackParser.parsePlayers(this.getTrack());
+        this.finishLine = raceTrackParser.parseFinishLine(this.getPlayers());
     }
+
     @Override
     public char[][] getTrack() {
         return this.racetrack;

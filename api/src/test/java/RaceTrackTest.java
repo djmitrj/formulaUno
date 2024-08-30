@@ -23,9 +23,9 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import it.unicam.cs.formulaUno.api.File.FileIO;
-import it.unicam.cs.formulaUno.api.File.FileIOFormulaUno;
-import it.unicam.cs.formulaUno.api.File.FileReaderError;
+import it.unicam.cs.formulaUno.api.raceTrackParser.raceTrackParser;
+import it.unicam.cs.formulaUno.api.raceTrackParser.raceTrackParserFormulaUno;
+import it.unicam.cs.formulaUno.api.raceTrackParser.FileReaderError;
 import it.unicam.cs.formulaUno.api.raceTrack.raceTrack;
 import it.unicam.cs.formulaUno.api.raceTrack.raceTrackFormulaUno;
 import org.junit.jupiter.api.Test;
@@ -33,7 +33,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class RaceTrackTest {
 
-    private final FileIO<char[][]> fileIO = new FileIOFormulaUno("racetrack.txt");
+    private final raceTrackParser<char[][]> fileIO = new raceTrackParserFormulaUno("racetrack.txt");
     private final raceTrack<char[][]> raceTrack = new raceTrackFormulaUno(fileIO);
 
     public RaceTrackTest() throws FileReaderError {

@@ -23,7 +23,7 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package it.unicam.cs.formulaUno.api.File;
+package it.unicam.cs.formulaUno.api.raceTrackParser;
 
 import java.io.IOException;
 

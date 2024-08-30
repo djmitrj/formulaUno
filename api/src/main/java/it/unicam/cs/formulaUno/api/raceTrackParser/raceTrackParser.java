@@ -23,7 +23,7 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package it.unicam.cs.formulaUno.api.File;
+package it.unicam.cs.formulaUno.api.raceTrackParser;
 
 import it.unicam.cs.formulaUno.api.Player.*;
 
@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * @param <T> type of the racetrack
  */
-public interface FileIO<T> {
+public interface raceTrackParser<T> {
     /**
      * Reads the game path file as input
      * @return file read as input

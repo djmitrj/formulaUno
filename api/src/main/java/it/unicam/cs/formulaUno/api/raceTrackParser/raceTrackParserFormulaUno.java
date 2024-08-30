@@ -23,7 +23,7 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package it.unicam.cs.formulaUno.api.File;
+package it.unicam.cs.formulaUno.api.raceTrackParser;
 
 import it.unicam.cs.formulaUno.api.Player.*;
 import it.unicam.cs.formulaUno.api.gameMachine.*;
@@ -35,7 +35,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileIOFormulaUno implements FileIO<char[][]> {
+public class raceTrackParserFormulaUno implements raceTrackParser<char[][]> {
 
     private final String file;
 
@@ -43,7 +43,7 @@ public class FileIOFormulaUno implements FileIO<char[][]> {
      * Constructor of the Class to generate the racetrack
      * @param file name of the file to read as input
      */
-    public FileIOFormulaUno(String file) {
+    public raceTrackParserFormulaUno(String file) {
         if(file == null) {
             throw new NullPointerException("The string passed is null");
         }
@@ -52,7 +52,7 @@ public class FileIOFormulaUno implements FileIO<char[][]> {
 
     @Override
     public List<String> readFile() throws FileReaderError {
-        ClassLoader classLoader = FileIOFormulaUno.class.getClassLoader();
+        ClassLoader classLoader = raceTrackParserFormulaUno.class.getClassLoader();
         List<String> track = new ArrayList<>();
         try (InputStream inputStream = classLoader.getResourceAsStream(this.file)) {
             assert inputStream != null;

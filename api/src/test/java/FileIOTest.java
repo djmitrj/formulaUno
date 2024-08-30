@@ -23,7 +23,7 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import it.unicam.cs.formulaUno.api.File.*;
+import it.unicam.cs.formulaUno.api.raceTrackParser.*;
 import it.unicam.cs.formulaUno.api.Player.*;
 import org.junit.jupiter.api.Test;
 
@@ -33,7 +33,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FileIOTest {
 
-    private final FileIO<char[][]> fileIO = new FileIOFormulaUno("racetrack.txt");
+    private final raceTrackParser<char[][]> fileIO = new raceTrackParserFormulaUno("racetrack.txt");
     private final List<String> file = fileIO.readFile();
     private final char[][] track = fileIO.parseTrack(file);
     private final  List<Player> players = fileIO.parsePlayers(track);
