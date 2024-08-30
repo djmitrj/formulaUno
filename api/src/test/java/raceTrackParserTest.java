@@ -31,15 +31,18 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class FileIOTest {
+/**
+ * Class Test of raceTrackParser
+ */
+public class raceTrackParserTest {
 
-    private final raceTrackParser<char[][]> fileIO = new raceTrackParserFormulaUno("racetrack.txt");
-    private final List<String> file = fileIO.readFile();
-    private final char[][] track = fileIO.parseTrack(file);
-    private final  List<Player> players = fileIO.parsePlayers(track);
-    private final  List<Integer> finishLine = fileIO.parseFinishLine(players);
+    private final raceTrackParser<char[][]> rtParserFormulaUno = new raceTrackParserFormulaUno("racetrack.txt");
+    private final List<String> file = rtParserFormulaUno.readFile();
+    private final char[][] track = rtParserFormulaUno.parseTrack(file);
+    private final  List<Player> players = rtParserFormulaUno.parsePlayers(track);
+    private final  List<Integer> finishLine = rtParserFormulaUno.parseFinishLine(players);
 
-    public FileIOTest() throws FileReaderError {
+    public raceTrackParserTest() throws FileReaderError {
     }
 
     @Test

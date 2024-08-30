@@ -33,8 +33,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class RaceTrackTest {
 
-    private final raceTrackParser<char[][]> fileIO = new raceTrackParserFormulaUno("racetrack.txt");
-    private final raceTrack<char[][]> raceTrack = new raceTrackFormulaUno(fileIO);
+    private final raceTrackParser<char[][]> rtParserFormulaUno = new raceTrackParserFormulaUno("racetrack.txt");
+    private final raceTrack<char[][]> raceTrack = new raceTrackFormulaUno(rtParserFormulaUno);
 
     public RaceTrackTest() throws FileReaderError {
     }
