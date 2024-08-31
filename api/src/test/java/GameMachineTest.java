@@ -29,6 +29,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
+/**
+ * Class test of gameMachine
+ */
 public class GameMachineTest {
 
    private final gameMachine gameMachine = new gameMachineFormulaUno(new positionFormulaUno(1,2));

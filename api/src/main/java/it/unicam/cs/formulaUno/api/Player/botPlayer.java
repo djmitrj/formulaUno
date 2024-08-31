@@ -27,6 +27,9 @@ package it.unicam.cs.formulaUno.api.Player;
 
 import it.unicam.cs.formulaUno.api.gameMachine.*;
 
+/**
+ * Class representing the bot player in the game
+ */
 public class botPlayer extends genericPlayer {
     /**
      * Bot player constructor

@@ -26,7 +26,7 @@
 package it.unicam.cs.formulaUno.app;
 
 import it.unicam.cs.formulaUno.api.Console.*;
-import it.unicam.cs.formulaUno.api.raceTrackParser.*;
+import it.unicam.cs.formulaUno.api.fileParser.*;
 import it.unicam.cs.formulaUno.api.gameEngine.*;
 import it.unicam.cs.formulaUno.api.playerMove.*;
 import it.unicam.cs.formulaUno.api.raceHandler.*;
@@ -34,9 +34,9 @@ import it.unicam.cs.formulaUno.api.raceTrack.*;
 
 public class Main {
     public static void main(String[] args) throws FileReaderError {
-        raceTrackParser<char[][]> rtParserFormulaUno = new raceTrackParserFormulaUno("racetrack.txt");
+        fileParser<char[][]> fileParserFormulaUno = new fileParserFormulaUno("racetrack.txt");
         Console<char[][]> console = new ConsoleFormulaUno();
-        raceTrack<char[][]> raceTrack = new raceTrackFormulaUno(rtParserFormulaUno);
+        raceTrack<char[][]> raceTrack = new raceTrackFormulaUno(fileParserFormulaUno);
         raceHandler<char[][]> rhFormulaUno = new raceHandlerFormulaUno();
         playerMove pmFormulaUno = new playerMoveFormulaUno();
         gameEngine geFormulaUno = new gameEngineFormulaUno(rhFormulaUno, raceTrack,

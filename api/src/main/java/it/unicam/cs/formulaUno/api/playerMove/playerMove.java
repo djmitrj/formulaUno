@@ -28,6 +28,9 @@ package it.unicam.cs.formulaUno.api.playerMove;
 import it.unicam.cs.formulaUno.api.Player.Player;
 import it.unicam.cs.formulaUno.api.Position.Position;
 
+/**
+ * Interface that manages the player's move
+ */
 public interface playerMove {
 
     /**

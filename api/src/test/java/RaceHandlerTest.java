@@ -23,7 +23,7 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import it.unicam.cs.formulaUno.api.raceTrackParser.*;
+import it.unicam.cs.formulaUno.api.fileParser.*;
 import it.unicam.cs.formulaUno.api.Player.*;
 import it.unicam.cs.formulaUno.api.Position.*;
 import it.unicam.cs.formulaUno.api.gameMachine.*;
@@ -33,10 +33,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Class test of raceHandler
+ */
 public class RaceHandlerTest {
 
-    private final raceTrackParser<char[][]> rtParserFormulaUno = new raceTrackParserFormulaUno("racetrack.txt");
-    private final raceTrack<char[][]> raceTrack = new raceTrackFormulaUno(rtParserFormulaUno);
+    private final fileParser<char[][]> fileParserFormulaUno = new fileParserFormulaUno("racetrack.txt");
+    private final raceTrack<char[][]> raceTrack = new raceTrackFormulaUno(fileParserFormulaUno);
     private final raceHandler<char[][]> raceHandlerFormulaUno = new raceHandlerFormulaUno();
 
     public RaceHandlerTest() throws FileReaderError {

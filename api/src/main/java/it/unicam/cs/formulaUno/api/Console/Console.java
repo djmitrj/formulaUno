@@ -30,6 +30,7 @@ import it.unicam.cs.formulaUno.api.Player.*;
 import java.util.List;
 
 /**
+ * Interface that prints the progress of the game on the console
  * @param <T> type of the racetrack
  */
 public interface Console<T> {
@@ -57,7 +58,7 @@ public interface Console<T> {
 
     /**
      * Victory message
-     * @param player Winning player
+     * @param player Winner player
      */
     void messageVictory(Player player);
 

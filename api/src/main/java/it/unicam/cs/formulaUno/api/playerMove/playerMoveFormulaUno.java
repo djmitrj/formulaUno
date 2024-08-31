@@ -32,6 +32,9 @@ import it.unicam.cs.formulaUno.api.Position.positionFormulaUno;
 
 import java.util.Random;
 
+/**
+ * Class that manages the player's move
+ */
 public class playerMoveFormulaUno implements playerMove{
 
     @Override

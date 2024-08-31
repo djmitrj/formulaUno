@@ -32,6 +32,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Class test of playerMove
+ */
 public class PlayerMoveTest {
 
     @Test

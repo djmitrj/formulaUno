@@ -30,6 +30,7 @@ import it.unicam.cs.formulaUno.api.Position.*;
 import it.unicam.cs.formulaUno.api.raceTrack.*;
 
 /**
+ * Interface that manages operations on the racetrack
  * @param <T> type of the racetrack
  */
 public interface raceHandler<T> {

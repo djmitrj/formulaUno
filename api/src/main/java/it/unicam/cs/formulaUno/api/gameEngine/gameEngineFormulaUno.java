@@ -32,6 +32,9 @@ import it.unicam.cs.formulaUno.api.playerMove.*;
 import it.unicam.cs.formulaUno.api.raceHandler.*;
 import it.unicam.cs.formulaUno.api.raceTrack.*;
 
+/**
+ * Class of the game engine of Formula Uno game
+ */
 public class gameEngineFormulaUno implements gameEngine {
 
     private boolean gameRunning;

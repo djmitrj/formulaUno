@@ -30,6 +30,9 @@ import it.unicam.cs.formulaUno.api.Position.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class representing the player's gaming machine
+ */
 public class gameMachineFormulaUno implements gameMachine {
 
     private Position position;

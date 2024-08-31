@@ -30,6 +30,7 @@ import it.unicam.cs.formulaUno.api.Player.Player;
 import java.util.List;
 
 /**
+ * Interface that represents the racetrack, the players competing and the finish line
  * @param <T> type of the racetrack
  */
 public interface raceTrack<T> {

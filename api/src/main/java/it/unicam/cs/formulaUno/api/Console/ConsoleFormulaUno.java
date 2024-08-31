@@ -29,6 +29,9 @@ import it.unicam.cs.formulaUno.api.Player.*;
 
 import java.util.List;
 
+/**
+ * Class that prints the progress of the game on the console
+ */
 public class ConsoleFormulaUno implements Console<char[][]> {
 
     @Override

@@ -30,7 +30,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
+/**
+ * Class test of Player
+ */
 public class PlayerTest {
 
     private final Player playerB = new botPlayer("1B",'B',new gameMachineFormulaUno(new positionFormulaUno(1,2)));

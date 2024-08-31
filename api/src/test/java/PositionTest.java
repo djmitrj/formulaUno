@@ -28,6 +28,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Class test of Position
+ */
 public class PositionTest {
 
     private final Position position = new positionFormulaUno(1,2);

@@ -29,6 +29,9 @@ import it.unicam.cs.formulaUno.api.Position.*;
 
 import java.util.List;
 
+/**
+ * Interface representing the player's gaming machine
+ */
 public interface gameMachine {
     /**
      * Get the player's position on the racetrack

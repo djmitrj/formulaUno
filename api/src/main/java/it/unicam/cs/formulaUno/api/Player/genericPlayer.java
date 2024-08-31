@@ -27,6 +27,9 @@ package it.unicam.cs.formulaUno.api.Player;
 
 import it.unicam.cs.formulaUno.api.gameMachine.*;
 
+/**
+ * Class representing the player in the game
+ */
 public abstract class genericPlayer implements Player {
 
     private final String id;

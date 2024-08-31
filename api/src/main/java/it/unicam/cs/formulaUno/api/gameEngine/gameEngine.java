@@ -25,6 +25,9 @@
 
 package it.unicam.cs.formulaUno.api.gameEngine;
 
+/**
+ * Interface of the game engine of Formula Uno game
+ */
 public interface gameEngine {
     /**
      * Start the game

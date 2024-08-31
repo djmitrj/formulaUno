@@ -25,6 +25,9 @@
 
 package it.unicam.cs.formulaUno.api.Position;
 
+/**
+ * Interface that represent a position of a player in the game
+ */
 public interface Position {
     /**
      * X coordinate of the player's position on the racetrack

@@ -23,16 +23,17 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package it.unicam.cs.formulaUno.api.raceTrackParser;
+package it.unicam.cs.formulaUno.api.fileParser;
 
 import it.unicam.cs.formulaUno.api.Player.*;
 
 import java.util.List;
 
 /**
+ * Interface representing the parser of the racetrack of the game
  * @param <T> type of the racetrack
  */
-public interface raceTrackParser<T> {
+public interface fileParser<T> {
     /**
      * Reads the game path file as input
      * @return file read as input

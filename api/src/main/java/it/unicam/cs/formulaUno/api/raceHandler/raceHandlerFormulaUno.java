@@ -30,6 +30,9 @@ import it.unicam.cs.formulaUno.api.Player.*;
 import it.unicam.cs.formulaUno.api.Position.*;
 import it.unicam.cs.formulaUno.api.raceTrack.*;
 
+/**
+ * Class that manages operations on the racetrack
+ */
 public class raceHandlerFormulaUno implements raceHandler<char[][]> {
     
     @Override

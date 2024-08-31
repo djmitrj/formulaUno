@@ -23,7 +23,7 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import it.unicam.cs.formulaUno.api.raceTrackParser.*;
+import it.unicam.cs.formulaUno.api.fileParser.*;
 import it.unicam.cs.formulaUno.api.Player.*;
 import org.junit.jupiter.api.Test;
 
@@ -32,17 +32,17 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * Class Test of raceTrackParser
+ * Class Test of fileParser
  */
-public class raceTrackParserTest {
+public class FileParserTest {
 
-    private final raceTrackParser<char[][]> rtParserFormulaUno = new raceTrackParserFormulaUno("racetrack.txt");
-    private final List<String> file = rtParserFormulaUno.readFile();
-    private final char[][] track = rtParserFormulaUno.parseTrack(file);
-    private final  List<Player> players = rtParserFormulaUno.parsePlayers(track);
-    private final  List<Integer> finishLine = rtParserFormulaUno.parseFinishLine(players);
+    private final fileParser<char[][]> fileParserFormulaUno = new fileParserFormulaUno("racetrack.txt");
+    private final List<String> file = fileParserFormulaUno.readFile();
+    private final char[][] track = fileParserFormulaUno.parseTrack(file);
+    private final  List<Player> players = fileParserFormulaUno.parsePlayers(track);
+    private final  List<Integer> finishLine = fileParserFormulaUno.parseFinishLine(players);
 
-    public raceTrackParserTest() throws FileReaderError {
+    public FileParserTest() throws FileReaderError {
     }
 
     @Test

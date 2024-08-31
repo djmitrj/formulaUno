@@ -27,6 +27,9 @@ package it.unicam.cs.formulaUno.api.Player;
 
 import it.unicam.cs.formulaUno.api.gameMachine.*;
 
+/**
+ * Interface representing the player in the game
+ */
 public interface Player {
     /**
      * Returns the player identifier
